@@ -11,11 +11,12 @@ function App() {
         <Switch>
             <Route 
                 path="/" 
-                render={(props)=><Posts {...props} title="Recently Added"/>} 
+                render={(props)=><Posts {...props} title="Recently Added"/>}
+                exact 
             />
             <Route 
                 path="/oldest" 
-                render={(props)=><Posts {...props} title="Oldes first"/>} 
+                render={(props)=><Posts {...props} title="Oldest first"/>} 
             />
             <Route 
                 path="/random" 

@@ -27,7 +27,12 @@ export default ()=>{
         },
     ]
     const NavItems = links.map((link, i)=>{
-        return <NavItem key={i} text={link.text} link={link.link}/>
+        return <NavItem 
+            key={i} 
+            text={link.text} 
+            link={link.link} 
+            exact={link.exact}
+        />
     })
     return (
         <ul className={styles.SideNav}>
