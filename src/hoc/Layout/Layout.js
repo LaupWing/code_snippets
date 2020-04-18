@@ -10,7 +10,7 @@ class Layout extends Component{
                 <Nav/>
                 <main className={styles.content}>
                     <SideNav/>
-                    <section>
+                    <section className={styles.Section}>
                         {this.props.children}
                     </section>
                 </main>

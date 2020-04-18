@@ -4,3 +4,7 @@
     width: var(--baseWidth);
     max-width: var(--maxWidth);
 }
+
+.Section{
+    padding: 20px;
+}

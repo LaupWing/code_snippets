@@ -1,16 +1,22 @@
 .SideNav{
     display: flex;
-    align-items: flex-start;
-    padding: 5px;
     flex-direction: column;
     border-right: 1px var(--borderColor) solid;
+    width: 150px;
 }
 
 .SideNav h2{
     font-size: 1.2rem;
     text-transform: uppercase;
+    margin: 10px 0;
 }
 .SideNav li{
     padding: 5px;
     padding-left: 30px;
+}
+.SideNav li.active{
+    background-color: var(--borderColor);
+    color:var(--secundairColor);
+    font-weight: bold;
+    border-right: 10px solid var(--highlightColor);
 }

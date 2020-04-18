@@ -5,7 +5,7 @@ export default ()=>{
     return (
         <ul className={styles.SideNav}>
             <h2>Orderd By</h2>
-            <li>Recent</li>
+            <li className={styles.active}>Recent</li>
             <li>Skills</li>
             <li></li>
         </ul>
