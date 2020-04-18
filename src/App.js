@@ -12,7 +12,6 @@ function App() {
         </Switch>
     )
 
-
     return (
         <div className={styles.App}>
             <Layout>
