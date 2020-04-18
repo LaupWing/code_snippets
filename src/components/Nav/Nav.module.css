@@ -8,6 +8,7 @@
 .Nav{
     padding: 10px;
     display: flex;
+    align-items: center;
     width: var(--baseWidth);
     max-width: var(--maxWidth);
 }

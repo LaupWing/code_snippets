@@ -8,7 +8,8 @@
 .SideNav h2{
     font-size: 1.2rem;
     text-transform: uppercase;
-    margin: 10px 0;
+    margin: 20px 0;
+    opacity: .4;
 }
 .SideNav li{
     padding: 5px;

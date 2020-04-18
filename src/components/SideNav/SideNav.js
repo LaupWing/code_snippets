@@ -6,8 +6,9 @@ export default ()=>{
         <ul className={styles.SideNav}>
             <h2>Orderd By</h2>
             <li className={styles.active}>Recent</li>
+            <li>Oldest</li>
+            <li>Random</li>
             <li>Skills</li>
-            <li></li>
         </ul>
     )
 }
