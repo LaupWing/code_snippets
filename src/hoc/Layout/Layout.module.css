@@ -8,3 +8,7 @@
 .Section{
     padding: 30px;
 }
+
+.Section h2{
+    font-size: 2rem;
+}

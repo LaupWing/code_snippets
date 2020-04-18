@@ -8,6 +8,7 @@ export default ()=>{
             <li className={styles.active}>Recent</li>
             <li>Oldest</li>
             <li>Random</li>
+            <li>Videos</li>
             <li>Skills</li>
         </ul>
     )
