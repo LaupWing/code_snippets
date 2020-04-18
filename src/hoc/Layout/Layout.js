@@ -1,13 +1,18 @@
 import React, {Fragment, Component} from 'react'
 import Nav from '../../components/Nav/Nav'
+import SideNav from '../../components/SideNav/SideNav'
+import styles from './Layout.module.css'
 
 class Layout extends Component{
     render(){
         return(
             <Fragment>
                 <Nav/>
-                <main>
-                    {this.props.children}
+                <main className={styles.content}>
+                    <SideNav/>
+                    <section>
+                        {this.props.children}
+                    </section>
                 </main>
             </Fragment>
         )

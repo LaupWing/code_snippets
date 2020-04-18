@@ -1,0 +1,6 @@
+.content{
+    display: flex;
+    flex: 1;
+    width: var(--baseWidth);
+    max-width: var(--maxWidth);
+}
