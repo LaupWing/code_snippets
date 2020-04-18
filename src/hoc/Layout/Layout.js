@@ -1,5 +1,5 @@
 import React, {Fragment, Component} from 'react'
-import Nav from '../../components/Nav'
+import Nav from '../../components/Nav/Nav'
 
 class Layout extends Component{
     render(){
