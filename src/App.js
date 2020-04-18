@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './App.module.css';
 import {Route, Switch} from 'react-router-dom';
-import Skills from './pages/Skills'
+import Skills from './pages/Skills/Skills'
 import Layout from './hoc/Layout/Layout'
 
 
