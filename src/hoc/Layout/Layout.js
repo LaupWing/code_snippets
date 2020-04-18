@@ -18,7 +18,11 @@ class Layout extends Component{
                         {this.props.children}
                     </section>
                 </main>
-                {this.state.login && <Modal close={()=>this.setState({login:false})}/>}
+                {this.state.login && 
+                    <Modal close={()=>this.setState({login:false})}>
+                        Test
+                    </Modal>
+                }
             </Fragment>
         )
     }
