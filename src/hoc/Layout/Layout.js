@@ -1,10 +1,11 @@
 import React, {Fragment, Component} from 'react'
+import Nav from '../../components/Nav'
 
 class Layout extends Component{
     render(){
         return(
             <Fragment>
-                <div>Hi</div>
+                <Nav/>
                 <main>
                     {this.props.children}
                 </main>

@@ -14,9 +14,11 @@ function App() {
 
 
     return (
-        <Layout>
-            {routes}
-        </Layout>    
+        <div className={styles.App}>
+            <Layout>
+                {routes}
+            </Layout>    
+        </div>
     );
 }
 
