@@ -1,12 +1,22 @@
 import React from 'react';
-import styles from './App.module.css'
-import Editor from './Editor/Editor'
+import styles from './App.module.css';
+import {Route, Switch} from 'react-router-dom';
+import Skills from './pages/Skills'
+import Layout from './hoc/Layout/Layout'
+
 
 function App() {
+    const routes = (
+        <Switch>
+            <Route path="/" component={Skills}/>
+        </Switch>
+    )
+
+
     return (
-        <div className={styles.App}>
-            <Editor/>
-        </div>
+        <Layout>
+            {routes}
+        </Layout>    
     );
 }
 
