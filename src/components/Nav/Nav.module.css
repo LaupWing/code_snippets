@@ -28,4 +28,5 @@ input[type="text"]::placeholder{
 .Auth{
     color: var(--highlightColor);
     font-weight: bold;
+    cursor: pointer;
 }
