@@ -4,9 +4,9 @@ import styles from './Skills.module.css';
 class Skills extends Component{
     render(){
         return (
-            <div className={styles.Skills}>
+            <React.Fragment className={styles.Skills}>
                 <h2>Skills</h2>
-            </div>
+            </React.Fragment>
         )
     }
 }

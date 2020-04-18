@@ -3,9 +3,10 @@ import React from 'react';
 export default (props)=>{
     console.log(props)
     return (
-        <div>
+        <React.Fragment>
             <h2>{props.title}</h2>
-        </div>
+            <p>{props.description}</p>
+        </React.Fragment>
     )
 }
 

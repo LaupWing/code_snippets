@@ -9,6 +9,9 @@
     padding: 30px;
 }
 
-.Section h2{
+.Section h2:first-of-type{
     font-size: 2rem;
+}
+.Section p:first-of-type{
+    opacity: .5;
 }
