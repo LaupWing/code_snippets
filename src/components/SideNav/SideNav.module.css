@@ -14,6 +14,11 @@
 .SideNav li{
     padding: 5px;
     padding-left: 30px;
+    transition: .25s;
+}
+.SideNav li:hover{
+    padding: 5px;
+    padding-left: 30px;
 }
 .SideNav li.active{
     background-color: var(--borderColor);

@@ -9,7 +9,18 @@ import Layout from './hoc/Layout/Layout'
 function App() {
     const routes = (
         <Switch>
-            <Route path="/" component={Posts} title="Recent"/>
+            <Route 
+                path="/" 
+                render={(props)=><Posts {...props} title="Recently Added"/>} 
+            />
+            <Route 
+                path="/oldest" 
+                render={(props)=><Posts {...props} title="Oldes first"/>} 
+            />
+            <Route 
+                path="/random" 
+                render={(props)=><Posts {...props} title="Random"/>} 
+            />
             <Route path="/skills" component={Skills}/>
         </Switch>
     )
