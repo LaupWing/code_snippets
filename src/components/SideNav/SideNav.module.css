@@ -17,12 +17,6 @@
     transition: .25s;
 }
 .SideNav li:hover{
-    padding: 5px;
-    padding-left: 30px;
-}
-.SideNav li.active{
     background-color: var(--borderColor);
     color:var(--secundairColor);
-    font-weight: bold;
-    border-right: 10px solid var(--highlightColor);
 }

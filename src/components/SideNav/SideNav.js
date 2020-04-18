@@ -1,26 +1,38 @@
 import React from 'react'
 import styles from './SideNav.module.css'
-import {NavLink} from 'react-router-dom'
+import NavItem from './NavItem/NavItem'
 
 export default ()=>{
+    const links = [
+        {
+            text: 'Recent',
+            link: '/',
+            exact: true
+        },
+        {
+            text: 'Oldest',
+            link: '/oldest'
+        },
+        {
+            text: 'Random',
+            link: '/random'
+        },
+        {
+            text: 'Videos',
+            link: '/videos'
+        },
+        {
+            text: 'Skills',
+            link: '/skills'
+        },
+    ]
+    const NavItems = links.map((link, i)=>{
+        return <NavItem key={i} text={link.text} link={link.link}/>
+    })
     return (
         <ul className={styles.SideNav}>
             <h2>Orderd By</h2>
-            <NavLink to="/">
-                <li className={styles.active}>Recent</li>
-            </NavLink>
-            <NavLink to="/oldest">
-                <li>Oldest</li>
-            </NavLink>
-            <NavLink to="/random">
-                <li>Random</li>
-            </NavLink>
-            <NavLink to="/videos">
-                <li>Videos</li>
-            </NavLink>
-            <NavLink to="/skills">
-                <li>Skills</li>
-            </NavLink>
+            {NavItems}
         </ul>
     )
 }

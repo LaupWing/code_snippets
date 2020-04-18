@@ -1,0 +1,6 @@
+a.active li{
+    background-color: var(--borderColor);
+    color:var(--secundairColor);
+    font-weight: bold;
+    border-right: 10px solid var(--highlightColor);
+}
