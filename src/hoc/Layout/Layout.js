@@ -4,6 +4,9 @@ import SideNav from '../../components/SideNav/SideNav'
 import styles from './Layout.module.css'
 
 class Layout extends Component{
+    state={
+        login: false
+    }
     render(){
         return(
             <Fragment>

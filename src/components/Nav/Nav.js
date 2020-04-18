@@ -7,7 +7,7 @@ export default ()=>{
             <nav className={styles.Nav}>
                 <h1>Code Snippets</h1>
                 <input type="text" placeholder="What do you want to find?..."></input>
-                <a href="/">Login</a>
+                <li className={styles.Auth}>Login</li>
             </nav>
         </header>
     )

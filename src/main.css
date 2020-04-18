@@ -7,6 +7,7 @@
     --borderColor: rgba(0,0,0,.2);
     --maxWidth: 1000px;
     --baseWidth: 90vw;
+    --backdrop: rgba(0,0,0,.8);
 }
 
 *{
