@@ -1,8 +1,10 @@
 import React from 'react';
 
-export default ()=>(
-    <>
+function Videos(){
+    return (<>
         <h2>Videos</h2>
         <p>Ordered the code snippets by videos</p>
-    </>
-)
+    </>);
+}
+
+export default Videos;

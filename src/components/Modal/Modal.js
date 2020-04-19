@@ -1,6 +1,6 @@
 import React from 'react';
 import Backdrop from '../../hoc/Backdrop/Backdrop';
-import styles from './Modal.module.css'
+import styles from './Modal.module.css';
 
 export default (props)=>(
     <Backdrop close={props.close}>

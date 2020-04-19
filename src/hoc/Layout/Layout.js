@@ -1,11 +1,11 @@
-import React, {useState} from 'react'
-import Nav from '../../components/Nav/Nav'
-import SideNav from '../../components/SideNav/SideNav'
-import styles from './Layout.module.css'
-import Modal from '../../components/Modal/Modal'
+import React, {useState} from 'react';
+import Nav from '../../components/Nav/Nav';
+import SideNav from '../../components/SideNav/SideNav';
+import styles from './Layout.module.css';
+import Modal from '../../components/Modal/Modal';
 
 function Layout(props){
-    const [login, setLogin] = useState(false)
+    const [login, setLogin] = useState(false);
     return(
         <>
             <Nav login={()=>setLogin(!login)}/>
@@ -21,7 +21,7 @@ function Layout(props){
                 </Modal>
             }
         </>
-    )
+    );
 }
 
-export default Layout
+export default Layout;

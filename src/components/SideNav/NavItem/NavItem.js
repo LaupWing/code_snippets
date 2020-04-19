@@ -6,4 +6,4 @@ export default (props)=>(
     <NavLink activeClassName={styles.active} to={props.link} exact={props.exact}>
         <li>{props.text}</li>
     </NavLink>
-)
+);

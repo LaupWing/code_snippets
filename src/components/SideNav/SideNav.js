@@ -1,6 +1,6 @@
-import React from 'react'
-import styles from './SideNav.module.css'
-import NavItem from './NavItem/NavItem'
+import React from 'react';
+import styles from './SideNav.module.css';
+import NavItem from './NavItem/NavItem';
 
 export default ()=>{
     const links = [
@@ -29,7 +29,7 @@ export default ()=>{
             text: 'Search',
             link: '/search'
         },
-    ]
+    ];
     const NavItems = links.map((link, i)=>{
         return <NavItem 
             key={i} 
@@ -37,11 +37,11 @@ export default ()=>{
             link={link.link} 
             exact={link.exact}
         />
-    })
+    });
     return (
         <ul className={styles.SideNav}>
             <h2>Orderd By</h2>
             {NavItems}
         </ul>
-    )
+    );
 }

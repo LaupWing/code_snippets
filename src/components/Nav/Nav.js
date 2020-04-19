@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Nav.module.css'
+import styles from './Nav.module.css';
 
 export default (props)=>{
     return (
@@ -10,5 +10,5 @@ export default (props)=>{
                 <li onClick={props.login} className={styles.Auth}>Login</li>
             </nav>
         </header>
-    )
+    );
 }
