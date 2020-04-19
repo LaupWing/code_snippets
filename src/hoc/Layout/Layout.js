@@ -3,6 +3,7 @@ import Nav from '../../components/Nav/Nav';
 import SideNav from '../../components/SideNav/SideNav';
 import styles from './Layout.module.css';
 import Modal from '../../components/Modal/Modal';
+import Auth from '../../components/Auth/Auth'
 
 function Layout(props){
     const [login, setLogin] = useState(false);
@@ -17,7 +18,7 @@ function Layout(props){
             </main>
             {login && 
                 <Modal close={()=>setLogin(false)}>
-                    Test
+                    <Auth/>
                 </Modal>
             }
         </>
