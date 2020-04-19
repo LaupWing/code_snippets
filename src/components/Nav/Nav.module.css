@@ -6,7 +6,7 @@
     box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.13);
 }
 .Nav{
-    padding: 10px;
+    padding: 20px 0;
     display: flex;
     align-items: center;
     width: var(--baseWidth);
@@ -29,4 +29,15 @@ input::placeholder{
     color: var(--highlightColor);
     font-weight: bold;
     cursor: pointer;
+}
+
+.Nav button{
+    background: transparent;
+    border: solid 2px var(--highlightColor);
+    border-radius: 5px;
+    transition: .25s;
+}
+.Nav button:hover{
+    background: var(--highlightColor);
+    color: var(--secundairColor);
 }

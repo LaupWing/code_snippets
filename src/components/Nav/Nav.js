@@ -10,8 +10,8 @@ export default (props)=>{
                 <h1>Code Snippets</h1>
                 <input type="text" placeholder="What do you want to find?..."></input>
                 {!user ? 
-                    <li onClick={props.setModal} className={styles.Auth}>Login</li> :
-                    <li onClick={logout} className={styles.Auth}>Logout</li>
+                    <button onClick={props.setModal} className={styles.Auth}>Login</button> :
+                    <button onClick={logout} className={styles.Auth}>Logout</button>
                 }
             </nav>
         </header>
