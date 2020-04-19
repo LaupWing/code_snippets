@@ -1,0 +1,21 @@
+.Auth{
+    width: 300px;
+}
+.Auth nav{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+}
+
+.Auth nav li{
+    cursor: pointer;
+    margin: 20px 0;
+    font-weight: bold;
+    padding-bottom: 4px;
+}
+
+.Auth li.active{
+    border-bottom: 4px solid var(--highlightColor);
+    padding-bottom: 0;
+}
