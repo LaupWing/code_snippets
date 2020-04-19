@@ -2,7 +2,7 @@ import {useEffect, useCallback, useState, useMemo} from 'react';
 import firebase from 'firebase';
 
 function FirebaseAuth(){
-    // console.log('Coming from Firebase Auth...');
+    console.log('Coming from Firebase Auth...');
     const [user, setUser] = useState(null);
     
     useEffect(()=>{ 
