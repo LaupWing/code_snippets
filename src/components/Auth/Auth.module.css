@@ -19,3 +19,29 @@
     border-bottom: 4px solid var(--highlightColor);
     padding-bottom: 0;
 }
+
+.cred{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0;
+    width: 70%;
+}
+
+.field input{
+    padding: 5px;
+}
+
+.field label{
+    font-size: .9em;
+}
+
+.cred button{
+    margin-top: 20px;
+}

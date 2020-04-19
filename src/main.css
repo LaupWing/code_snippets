@@ -24,3 +24,15 @@ a{
     text-decoration: none;
     color: var(--contrastColor);
 }
+
+input{
+    outline: none;
+}
+
+button{
+    background: var(--highlightColor);
+    border: none;
+    padding: 5px 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
