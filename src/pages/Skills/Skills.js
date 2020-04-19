@@ -3,7 +3,7 @@ import styles from './Skills.module.css';
 
 function Skills(){
     return (
-        <React.Fragment className={styles.Skills}>
+        <React.Fragment>
             <h2>Skills</h2>
         </React.Fragment>
     );

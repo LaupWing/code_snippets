@@ -1,7 +1,10 @@
-import React from 'react';
+import React,{ useContext} from 'react';
 import styles from './Nav.module.css';
+import UserContext from '../../context/UserContext';
 
 export default (props)=>{
+    const user = useContext(UserContext);
+    console.log(user);
     return (
         <header className={styles.Header}>
             <nav className={styles.Nav}>

@@ -1,9 +1,9 @@
 import {useEffect, useCallback, useState} from 'react';
+import firebase from 'firebase';
 
-
-function firebaseAuth(){
+function FirebaseAuth(){
+    console.log('Coming from Firebase Auth...');
     const [user, setUser] = useState(null);
-
     useEffect(()=>{ 
         firebase.auth().onAuthStateChanged(newUser=>{
             if(newUser){
@@ -15,7 +15,7 @@ function firebaseAuth(){
     },[]);
 
     const logout = useCallback(()=>{
-        firebaseAuth.auth().signOut();
+        firebase.auth().signOut();
     }, []);
 
     const login = useCallback(async({email,password})=>{
@@ -47,4 +47,4 @@ function firebaseAuth(){
     }
 }
 
-export default firebaseAuth;
+export default FirebaseAuth;

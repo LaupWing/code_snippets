@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './App.module.css';
 import {Route, Switch} from 'react-router-dom';
 import Skills from './pages/Skills/Skills'
 import Videos from './pages/Videos/Videos'
 import Posts from './pages/Posts/Posts'
 import Layout from './hoc/Layout/Layout'
-
+import FirebaseAuth from './helpers/FirebaseAuth';
+import UserContext from './context/UserContext'
 
 function App() {
+    const {user} = FirebaseAuth(); 
+    console.log('Running App');
+    
     const routes = (
         <Switch>
             <Route 
@@ -42,9 +46,11 @@ function App() {
 
     return (
         <div className={styles.App}>
-            <Layout>
-                {routes}
-            </Layout>    
+            <UserContext.Provider value={user}>
+                <Layout>
+                    {routes}
+                </Layout>    
+            </UserContext.Provider>
         </div>
     );
 }
