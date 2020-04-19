@@ -2,7 +2,6 @@ import {useEffect, useCallback, useState} from 'react';
 import firebase from 'firebase';
 
 function FirebaseAuth(){
-    console.log('Coming from Firebase Auth...');
     const [user, setUser] = useState(null);
     
     useEffect(()=>{ 
@@ -10,7 +9,7 @@ function FirebaseAuth(){
             if(newUser){
                 setUser(newUser);
             }else{
-                setUser(null)
+                setUser(null);
             }
         });
     },[]);

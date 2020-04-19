@@ -6,6 +6,7 @@ import Videos from './pages/Videos/Videos'
 import Posts from './pages/Posts/Posts'
 import Layout from './hoc/Layout/Layout'
 import FirebaseAuth from './helpers/FirebaseAuth';
+import FirebaseData from './helpers/FirebaseData';
 import UserContext from './context/UserContext'
 
 function App() {
@@ -14,7 +15,10 @@ function App() {
         login,
         logout,
         signup} = FirebaseAuth(); 
-    console.log('Running app')
+    const {
+        data} = FirebaseData();
+    console.log('Running app');
+    console.log(data);
     const routes = (
         <Switch>
             <Route 
@@ -49,7 +53,13 @@ function App() {
 
     return (
         <div className={styles.App}>
-            <UserContext.Provider value={{user, login,signup, logout}}>
+            <UserContext.Provider value={{
+                user, 
+                login,
+                signup, 
+                logout, 
+                data}}
+            >
                 <Layout>
                     {routes}
                 </Layout>    

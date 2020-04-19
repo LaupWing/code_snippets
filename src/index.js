@@ -6,7 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
 import firebase from 'firebase';
 import './db';
-import './helpers/FireabaseData';
 
 let flag = true
 
