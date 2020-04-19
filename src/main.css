@@ -35,4 +35,11 @@ button{
     padding: 5px 15px;
     letter-spacing: 1px;
     text-transform: uppercase;
+    transition: all .25s;
+}
+
+button:hover{
+    cursor: pointer;
+    background: var(--backdrop);
+    color: var(--highlightColor);
 }
