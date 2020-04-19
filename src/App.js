@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './App.module.css';
 import {Route, Switch} from 'react-router-dom';
 import Skills from './pages/Skills/Skills'
@@ -14,10 +14,8 @@ function App() {
         login,
         logout,
         signup} = FirebaseAuth(); 
-    useEffect(()=>{
-        
-    },[user])
-    console.log('Running App');
+    console.log('Running app')
+    
     const routes = (
         <Switch>
             <Route 
@@ -52,7 +50,7 @@ function App() {
 
     return (
         <div className={styles.App}>
-            <UserContext.Provider value={{user, login,signup, logout}}>
+            <UserContext.Provider value={user, login,signup, logout}>
                 <Layout>
                     {routes}
                 </Layout>    

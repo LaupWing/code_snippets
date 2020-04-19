@@ -9,7 +9,7 @@ function Auth(){
     const [error, setError] = useState(null);
     const {login} = useContext(UserContext);
     const formEl = useRef(null);
-
+    
     const handleSubmit = async e =>{
         e.preventDefault();
         if(loginDisplay){
@@ -27,7 +27,6 @@ function Auth(){
         }else{
             console.log('Register account')
         }
-
     }
     return (
         <form ref={formEl} onSubmit={handleSubmit} className={styles.Auth}>
