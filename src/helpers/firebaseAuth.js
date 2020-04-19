@@ -21,14 +21,13 @@ function FirebaseAuth(){
 
     const login = useCallback(async({email,password})=>{
         try{
-            const result = await firebase.auth().signInWithEmailAndPassword({
+            const result = await firebase.auth().signInWithEmailAndPassword(
                 email,
                 password
-            }); 
+            ); 
             setUser(result);
-            console.log(result);
         }catch(error){
-            console.log(error);
+            return error
         }
     },[])
 

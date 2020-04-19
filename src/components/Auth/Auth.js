@@ -10,17 +10,19 @@ function Auth(){
     const {login} = useContext(UserContext);
     const formEl = useRef(null);
 
-    const handleSubmit = e =>{
+    const handleSubmit = async e =>{
         e.preventDefault();
         if(loginDisplay){
-            const {email} = formEl.current 
-            const {password} = formEl.current
+            const {email} = formEl.current;
+            const {password} = formEl.current;
             
-            if(email.value !== '' || password.value !== ''){
+            if(email.value === '' || password.value === ''){
                 setError('Fill in both fields');
-                console.log(error)
             }else{
-                console.log('filled in both')
+                const error = await login({email: email.value, password:password.value});
+                if(error){
+                    setError('Credentials doesnt match');
+                }
             }
         }else{
             console.log('Register account')

@@ -12,7 +12,7 @@ function Login(props){
                 <label>Password:</label>
                 <input name="password" type="password" placeholder="Password"></input>
             </div>
-            {props.error && <p>{props.error}</p>}
+            {props.error && <p className={styles.error}>{props.error}</p>}
             <button>Login</button>
         </div>
     );
