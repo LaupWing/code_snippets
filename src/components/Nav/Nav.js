@@ -4,7 +4,7 @@ import UserContext from '../../context/UserContext';
 
 export default (props)=>{
     const user = useContext(UserContext);
-    console.log(user);
+    console.log(user)
     return (
         <header className={styles.Header}>
             <nav className={styles.Nav}>

@@ -9,7 +9,11 @@ import FirebaseAuth from './helpers/FirebaseAuth';
 import UserContext from './context/UserContext'
 
 function App() {
-    const {user} = FirebaseAuth(); 
+    const {
+        user, 
+        login,
+        logout,
+        signup} = FirebaseAuth(); 
     console.log('Running App');
     
     const routes = (
@@ -46,7 +50,7 @@ function App() {
 
     return (
         <div className={styles.App}>
-            <UserContext.Provider value={user}>
+            <UserContext.Provider value={{user, login,signup, logout}}>
                 <Layout>
                     {routes}
                 </Layout>    

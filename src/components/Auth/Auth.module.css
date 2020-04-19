@@ -45,3 +45,6 @@
 .cred button{
     margin-top: 20px;
 }
+.error{
+    color: var(--errorColor);
+}

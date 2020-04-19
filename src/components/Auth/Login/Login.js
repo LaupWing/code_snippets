@@ -1,17 +1,18 @@
 import React from 'react';
 import styles from '../Auth.module.css';
 
-function Login(){
+function Login(props){
     return(
         <div className={styles.cred}>
             <div className={styles.field}>
                 <label>Email:</label>
-                <input type="text" placeholder="Email"></input>
+                <input name="email" type="text" placeholder="Email"></input>
             </div>
             <div className={styles.field}>
                 <label>Password:</label>
-                <input type="password" placeholder="Password"></input>
+                <input name="password" type="password" placeholder="Password"></input>
             </div>
+            {props.error && <p>{props.error}</p>}
             <button>Login</button>
         </div>
     );

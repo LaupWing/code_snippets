@@ -1,12 +1,34 @@
-import React, {useState} from 'react';
+import React, {useState, useContext, useRef} from 'react';
 import Login from './Login/Login'
 import Register from './Register/Register';
 import styles from './Auth.module.css';
+import UserContext from '../../context/UserContext';
 
 function Auth(){
-    const [loginDisplay, setLoginDisplay] = useState(true)
+    const [loginDisplay, setLoginDisplay] = useState(true);
+    const [error, setError] = useState(null);
+    const {login} = useContext(UserContext);
+    const formEl = useRef(null);
+
+    const handleSubmit = e =>{
+        e.preventDefault();
+        if(loginDisplay){
+            const {email} = formEl.current 
+            const {password} = formEl.current
+            
+            if(email.value !== '' || password.value !== ''){
+                setError('Fill in both fields');
+                console.log(error)
+            }else{
+                console.log('filled in both')
+            }
+        }else{
+            console.log('Register account')
+        }
+
+    }
     return (
-        <form className={styles.Auth}>
+        <form ref={formEl} onSubmit={handleSubmit} className={styles.Auth}>
             <nav>
                 <li 
                     className={loginDisplay ? styles.active :null}
@@ -21,7 +43,7 @@ function Auth(){
                     Register
                 </li>
             </nav>
-            {loginDisplay ? <Login /> : <Register/>}
+            {loginDisplay ? <Login error={error}/> : <Register error={error}/>}
         </form>
     );
 }
