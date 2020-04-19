@@ -15,7 +15,6 @@ function App() {
         logout,
         signup} = FirebaseAuth(); 
     console.log('Running app')
-    
     const routes = (
         <Switch>
             <Route 
@@ -50,7 +49,7 @@ function App() {
 
     return (
         <div className={styles.App}>
-            <UserContext.Provider value={user, login,signup, logout}>
+            <UserContext.Provider value={{user, login,signup, logout}}>
                 <Layout>
                     {routes}
                 </Layout>    

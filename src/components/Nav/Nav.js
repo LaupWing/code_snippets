@@ -10,7 +10,7 @@ export default (props)=>{
             <nav className={styles.Nav}>
                 <h1>Code Snippets</h1>
                 <input type="text" placeholder="What do you want to find?..."></input>
-                <li onClick={props.login} className={styles.Auth}>Login</li>
+                <li onClick={props.setModal} className={styles.Auth}>Login</li>
             </nav>
         </header>
     );

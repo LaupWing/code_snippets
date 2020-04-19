@@ -29,7 +29,7 @@ function FirebaseAuth(){
             return error
         }
     },[])
-
+    
     const signup = useCallback(async({email,password})=>{
         try{
             firebase.auth().createUserWithEmailAndPassword({email,password});      

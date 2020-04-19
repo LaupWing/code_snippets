@@ -4,7 +4,7 @@ import Register from './Register/Register';
 import styles from './Auth.module.css';
 import UserContext from '../../context/UserContext';
 
-function Auth(){
+function Auth(props){
     const [loginDisplay, setLoginDisplay] = useState(true);
     const [error, setError] = useState(null);
     const {login} = useContext(UserContext);
@@ -22,7 +22,9 @@ function Auth(){
                 const error = await login({email: email.value, password:password.value});
                 if(error){
                     setError('Credentials doesnt match');
+                    return
                 }
+                props.closeModal()
             }
         }else{
             console.log('Register account')

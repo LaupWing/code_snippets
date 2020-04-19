@@ -6,19 +6,19 @@ import Modal from '../../components/Modal/Modal';
 import Auth from '../../components/Auth/Auth'
 
 function Layout(props){
-    const [login, setLogin] = useState(false);
+    const [modal, setModal] = useState(false);
     return(
         <>
-            <Nav login={()=>setLogin(!login)}/>
+            <Nav setModal={()=>setModal(true)}/>
             <main className={styles.content}>
                 <SideNav/>
                 <section className={styles.Section}>
                     {props.children}
                 </section>
             </main>
-            {login && 
-                <Modal close={()=>setLogin(false)}>
-                    <Auth/>
+            {modal && 
+                <Modal close={()=>setModal(false)}>
+                    <Auth closeModal={()=>setModal(false)}/>
                 </Modal>
             }
         </>
