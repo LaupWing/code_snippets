@@ -4,6 +4,7 @@ import firebase from 'firebase';
 function FirebaseAuth(){
     console.log('Coming from Firebase Auth...');
     const [user, setUser] = useState(null);
+
     useEffect(()=>{ 
         firebase.auth().onAuthStateChanged(newUser=>{
             if(newUser){
@@ -13,10 +14,10 @@ function FirebaseAuth(){
             }
         });
     },[]);
-
+    
     const logout = useCallback(()=>{
         firebase.auth().signOut();
-    }, []);
+    },[]);
 
     const login = useCallback(async({email,password})=>{
         try{
@@ -29,7 +30,7 @@ function FirebaseAuth(){
         }catch(error){
             console.log(error);
         }
-    })
+    },[])
 
     const signup = useCallback(async({email,password})=>{
         try{
@@ -37,7 +38,7 @@ function FirebaseAuth(){
         }catch(error){
             console.log(error);
         }
-    });
+    },[]);
 
     return{
         logout,
