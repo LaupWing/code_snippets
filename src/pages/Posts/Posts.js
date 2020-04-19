@@ -4,6 +4,7 @@ import UserContext from '../../context/UserContext';
 
 function Posts(props){
     const {data} = useContext(UserContext);
+    let formattedData = data;
     if(props.location.pathname.includes('oldest')){
         console.log('Transform data from oldest first');
         console.log(data);
@@ -23,4 +24,3 @@ function Posts(props){
 }
 
 export default Posts;
-
