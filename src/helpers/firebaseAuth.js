@@ -2,9 +2,9 @@ import {useEffect, useCallback, useState} from 'react';
 import firebase from 'firebase';
 
 function FirebaseAuth(){
-    console.log('Coming from Firebase Auth...');
+    // console.log('Coming from Firebase Auth...');
     const [user, setUser] = useState(null);
-
+    
     useEffect(()=>{ 
         firebase.auth().onAuthStateChanged(newUser=>{
             if(newUser){
@@ -21,11 +21,10 @@ function FirebaseAuth(){
 
     const login = useCallback(async({email,password})=>{
         try{
-            const result = await firebase.auth().signInWithEmailAndPassword(
+            await firebase.auth().signInWithEmailAndPassword(
                 email,
                 password
             ); 
-            setUser(result);
         }catch(error){
             return error
         }
@@ -38,7 +37,6 @@ function FirebaseAuth(){
             console.log(error);
         }
     },[]);
-
     return{
         logout,
         user,

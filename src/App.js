@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './App.module.css';
 import {Route, Switch} from 'react-router-dom';
 import Skills from './pages/Skills/Skills'
@@ -14,8 +14,10 @@ function App() {
         login,
         logout,
         signup} = FirebaseAuth(); 
+    useEffect(()=>{
+        
+    },[user])
     console.log('Running App');
-    
     const routes = (
         <Switch>
             <Route 
