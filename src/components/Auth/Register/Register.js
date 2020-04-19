@@ -1,8 +1,11 @@
 import React from 'react';
 
-function Register(){
+function Register(props){
     return(
-        <div>Register</div>
+        <div>
+            Register
+            <li onClick={props.switch(true)}>Already have an account? Click here to login</li>
+        </div>
     );
 }
 

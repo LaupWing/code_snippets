@@ -1,8 +1,11 @@
 import React from 'react';
 
-function Login(){
+function Login(props){
     return(
-        <div>Login</div>
+        <div>
+            Login
+            <li onClick={()=>props.switch(false)}>Dont have an account? Click here to register</li>
+        </div>
     );
 }
 
