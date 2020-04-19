@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styles from './SideNav.module.css';
 import NavItem from './NavItem/NavItem';
+import UsercContext from '.././../context/UserContext'
 
 export default ()=>{
+    const {user} = useContext(UsercContext);
+    
     const links = [
         {
             text: 'Recent',
@@ -30,14 +33,25 @@ export default ()=>{
             link: '/search'
         },
     ];
-    const NavItems = links.map((link, i)=>{
-        return <NavItem 
-            key={i} 
-            text={link.text} 
-            link={link.link} 
-            exact={link.exact}
-        />
-    });
+    
+    const NavItems = !user ? 
+        links.map((link, i)=>{
+            return <NavItem 
+                key={i} 
+                text={link.text} 
+                link={link.link} 
+                exact={link.exact}
+            />
+        }) :
+        [...links, {text: 'Favorites', link: '/favorites'}].map((link, i)=>{
+            return <NavItem 
+                key={i} 
+                text={link.text} 
+                link={link.link} 
+                exact={link.exact}
+            />
+        }) 
+        
     return (
         <ul className={styles.SideNav}>
             <h2>Orderd By</h2>
