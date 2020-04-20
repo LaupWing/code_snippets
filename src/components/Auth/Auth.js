@@ -7,7 +7,7 @@ import UserContext from '../../context/UserContext';
 function Auth(props){
     const [loginDisplay, setLoginDisplay] = useState(true);
     const [error, setError] = useState(null);
-    const {login} = useContext(UserContext);
+    const {login,signup} = useContext(UserContext);
     const formEl = useRef(null);
     
     const handleSubmit = async e =>{
@@ -27,7 +27,15 @@ function Auth(props){
                 props.closeModal()
             }
         }else{
-            console.log('Register account')
+            const {email} = formEl.current;
+            const {password} = formEl.current;
+            
+            if(email.value === '' || password.value === ''){
+                setError('Fill in both fields');
+            }else{
+                await signup({email: email.value, password:password.value});
+                props.closeModal()
+            }
         }
     }
     return (

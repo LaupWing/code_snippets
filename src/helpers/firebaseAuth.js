@@ -31,7 +31,11 @@ function FirebaseAuth(){
     
     const signup = useCallback(async({email,password})=>{
         try{
-            firebase.auth().createUserWithEmailAndPassword({email,password});      
+            const newUser = await firebase.auth().createUserWithEmailAndPassword(email,password);  
+            firebase.firestore().collection('users').doc(newUser.user.uid).set({
+                favorites:[],
+                type: 'visitor'
+            });
         }catch(error){
             console.log(error);
         }

@@ -5,6 +5,7 @@ import UserContext from '../../context/UserContext';
 function Posts(props){
     const {data} = useContext(UserContext);
     let formattedData = data;
+    console.log(formattedData);
     if(props.location.pathname.includes('oldest')){
         console.log('Transform data from oldest first');
         console.log(data);
@@ -19,6 +20,9 @@ function Posts(props){
         <>
             <h2>{props.title}</h2>
             <p>{props.description}</p>
+            <section>
+
+            </section>
         </>
     );
 }
