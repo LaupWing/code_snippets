@@ -44,4 +44,10 @@
 .content i{
     font-size: .7em;
     opacity: .5;
+    display: flex;
+    width: 100%;
+}
+.content i span{
+    flex: 1;
+    text-transform: uppercase;
 }
