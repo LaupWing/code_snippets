@@ -11,10 +11,8 @@ function Posts(props){
         console.log(data);
     }else if(props.location.pathname.includes('random')){
         console.log('Transform data random');
-        console.log(data);
     }else{
-        console.log('Transform form newest');
-        console.log(data);   
+        console.log('Transform form newest'); 
     }
     return (
         <>

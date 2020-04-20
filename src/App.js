@@ -16,9 +16,10 @@ function App() {
         logout,
         signup} = FirebaseAuth(); 
     const {
-        data} = FirebaseData();
+        data,
+        userInfo} = FirebaseData();
     // console.log('Running app');
-    // console.log(data);
+    // console.log(userInfo);
     const routes = (
         <Switch>
             <Route 
@@ -58,7 +59,9 @@ function App() {
                 login,
                 signup, 
                 logout, 
-                data}}
+                data,
+                userInfo
+            }}
             >
                 {data && <Layout>
                     {routes}
