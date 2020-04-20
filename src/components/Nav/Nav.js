@@ -1,7 +1,7 @@
 import React,{ useContext} from 'react';
 import styles from './Nav.module.css';
 import UserContext from '../../context/UserContext';
-import AddBtn from './Add/Add';
+import AddBtn from './Add/AddBtn';
 
 export default (props)=>{
     const {user, logout, userInfo, setUserInfo} = useContext(UserContext);
@@ -9,6 +9,7 @@ export default (props)=>{
         logout();
         setUserInfo(null);
     }
+
     return (
         <header className={styles.Header}>
             <nav className={styles.Nav}>
