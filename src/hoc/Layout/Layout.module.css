@@ -7,11 +7,17 @@
 
 .Section{
     padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .Section h2:first-of-type{
     font-size: 2rem;
+    width: 100%;
 }
 .Section p:first-of-type{
     opacity: .5;
+    width: 100%;
 }

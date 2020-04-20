@@ -1,6 +1,8 @@
 import React from 'react';
 import {useContext} from 'react';
 import UserContext from '../../context/UserContext';
+import Post from './Post/Post';
+import styles from './Posts.module.css';
 
 function Posts(props){
     const {data} = useContext(UserContext);
@@ -18,8 +20,10 @@ function Posts(props){
         <>
             <h2>{props.title}</h2>
             <p>{props.description}</p>
-            <section>
-
+            <section className={styles.content}>
+                {formattedData && formattedData.map((p, i)=>(
+                    <Post key={i} post={p}/>
+                ))}
             </section>
         </>
     );
