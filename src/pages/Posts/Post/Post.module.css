@@ -5,6 +5,11 @@
     border-radius: 5px;
     display: flex;
     align-items: flex-start;
+    transition: transform .25s;
+}
+.Post:hover{
+    transform: scale(1.02);
+    cursor: pointer;
 }
 
 .Post svg{
