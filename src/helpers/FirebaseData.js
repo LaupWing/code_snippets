@@ -27,7 +27,7 @@ function FirebaseData(){
             }
         })
     },[]);
-    return {data, userInfo};
+    return {data, userInfo, setUserInfo};
 }
 
 export default FirebaseData;
