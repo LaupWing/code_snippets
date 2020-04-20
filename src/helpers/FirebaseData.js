@@ -10,7 +10,11 @@ function FirebaseData(){
         const fetchData = async ()=>{
             const res = await db.collection('code_snippets').get()
             const result = res.docs.map(doc=>{
-                return doc.data();
+                const data = {
+                    ...doc.data(),
+                    id: doc.id
+                }
+                return data;
             })
             setData(result);
         }

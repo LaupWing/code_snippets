@@ -6,7 +6,7 @@ import dateFormat from 'dateformat';
 function Post({post}){
     const date = new Date(post.createdAt.seconds*1000);
     const createdAt = dateFormat(date);
-    
+    console.log(post)
     return(
         <div className={styles.Post}>
             <div className={styles.skill}>

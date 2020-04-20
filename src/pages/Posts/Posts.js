@@ -7,10 +7,10 @@ import styles from './Posts.module.css';
 function Posts(props){
     const {data} = useContext(UserContext);
     let formattedData = data;
-    console.log(formattedData);
+    // console.log(formattedData);
     if(props.location.pathname.includes('oldest')){
         console.log('Transform data from oldest first');
-        console.log(data);
+        // console.log(data);
     }else if(props.location.pathname.includes('random')){
         console.log('Transform data random');
     }else{
