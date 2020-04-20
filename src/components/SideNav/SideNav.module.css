@@ -20,3 +20,13 @@
     background-color: var(--borderColor);
     color:var(--secundairColor);
 }
+.SideNav .backBtn{
+    cursor: pointer;
+    padding: 5px 0;
+    border: solid var(--borderColor) 2px;
+    border-right: none;
+    margin: 20px;
+    margin-right: 0;
+    text-align: center;
+    border-radius: 10px 0 0 10px;
+}
