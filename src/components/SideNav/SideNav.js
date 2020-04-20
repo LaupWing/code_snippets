@@ -2,12 +2,12 @@ import React, {useContext} from 'react';
 import styles from './SideNav.module.css';
 import NavItem from './NavItem/NavItem';
 import UsercContext from '.././../context/UserContext';
-import {useLocation} from 'react-router-dom';
+import {useLocation, useHistory} from 'react-router-dom';
 
 export default ()=>{
     const {user} = useContext(UsercContext);
     const location = useLocation();
-
+    const history = useHistory();
     const links = [
         {
             text: 'Recent',
@@ -58,7 +58,7 @@ export default ()=>{
         <ul className={styles.SideNav}>
             
             {   location.pathname.includes('detail') ? 
-                <li className={styles.backBtn}>Back</li> : 
+                <li onClick={history.goBack} className={styles.backBtn}>Back</li> : 
                 <>
                     <h2>Orderd By</h2>
                     {NavItems}
