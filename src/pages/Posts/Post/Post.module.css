@@ -3,4 +3,36 @@
     box-shadow: 0px 0px 5px 0px var(--borderColor);
     padding: 10px;
     border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.Post svg{
+    width: 50px;
+}
+
+.skill{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.skill h3{
+    margin-top: 5px;
+    opacity: .5;
+    text-transform: uppercase;
+    font-size: .8em;
+}
+.content{
+    padding: 0 10px;
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.content h3{
+    font-size: 1.2em;
+}
+.content p{
+    font-size: .9em;
 }
