@@ -6,24 +6,28 @@ import styles from './Posts.module.css';
 
 function Posts(props){
     const {data} = useContext(UserContext);
-    let formattedData = data;
-    // console.log(formattedData);
+    let posts = null;
+    const setPosts = (ordererd)=>{
+        posts = ordererd.map((p, i)=>(<Post key={i} post={p}/>));
+    }
     if(props.location.pathname.includes('oldest')){
-        console.log('Transform data from oldest first');
-        // console.log(data);
+        console.log('Transform from oldest'); 
+        const orderByOldest = data.sort((a,b)=> new Date(a.createdAt.seconds) - new Date(b.createdAt.seconds));
+        setPosts(orderByOldest);
     }else if(props.location.pathname.includes('random')){
         console.log('Transform data random');
     }else{
-        console.log('Transform form newest'); 
+        const orderByRecent = data.sort((a,b)=>new Date(b.createdAt.seconds) - new Date(a.createdAt.seconds));
+        setPosts(orderByRecent);
     }
+    
+
     return (
         <>
             <h2>{props.title}</h2>
             <p>{props.description}</p>
             <section className={styles.content}>
-                {formattedData && formattedData.map((p, i)=>(
-                    <Post key={i} post={p}/>
-                ))}
+                {posts}
             </section>
         </>
     );

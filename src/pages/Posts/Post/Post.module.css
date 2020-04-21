@@ -6,7 +6,7 @@
     display: flex;
     align-items: flex-start;
     transition: transform .25s;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 .Post:hover{
     transform: scale(1.02);
