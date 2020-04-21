@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Vue.module.css';
+import styles from './VueIcon.module.css';
 
 const Vue = ()=>(
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1197.88 1038.39">
