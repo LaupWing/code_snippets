@@ -39,7 +39,7 @@ function AddModal(){
             .filter(s=>s.skill === skill)
             .map(s=>s.section);
         setSections(filtering);
-    },[skill]);
+    },[skill, user.data]);
 
     return (
         <form ref={formEl} onSubmit={handleSubmit} className={styles.AddModal}>

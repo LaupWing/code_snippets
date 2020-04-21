@@ -27,6 +27,7 @@
 .skills select{
     margin: 0 5px;
     padding: 5px;
+    font-size: 1rem;
     border: solid var(--borderColor) 1px;
 }
 .skills select:nth-of-type(2){
