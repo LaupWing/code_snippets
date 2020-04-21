@@ -1,20 +1,24 @@
-import React, {useState,useCallback} from 'react';
+import React, {useRef} from 'react';
 import styles from './AddModal.module.css';
 import MyEditor from '../../../Editor/Editor';
 
 function AddModal(){
-    let content = null
-    
+    let content = null;
+    const formEl = useRef(null);
+
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(content);
+        const form = formEl.current
+        const {title} = form; 
+        const {description} = form; 
+        console.log(title.value, description.value, content);
     }
     const setContent = (text)=>{
         content = text
     }
 
     return (
-        <form onSubmit={handleSubmit} className={styles.AddModal}>
+        <form ref={formEl} onSubmit={handleSubmit} className={styles.AddModal}>
             <input name="title" type="text" placeholder="Title of code"></input>
             <input name="description" type="text" placeholder="Your Description"></input>
             <MyEditor setContent={setContent}/>
