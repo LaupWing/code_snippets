@@ -6,6 +6,7 @@ const db = firebase.firestore();
 function FirebaseData(){
     const [data, setData] = useState(null);
     const [userInfo, setUserInfo] = useState(null);
+    const [detail, setDetail] = useState(null);
 
     useEffect(()=>{
         const fetchData = async ()=>{
@@ -37,7 +38,7 @@ function FirebaseData(){
     const addPost = async (newPost)=>{
         return await db.collection('code_snippets').doc().set(newPost);
     }
-    return {data, userInfo, setUserInfo, addPost};
+    return {data, userInfo, setUserInfo, addPost, detail ,setDetail};
 }
 
 export default FirebaseData;

@@ -1,11 +1,11 @@
 import React from 'react';
 import {useContext} from 'react';
-import UserContext from '../../context/UserContext';
+import DataContext from '../../context/DataContext';
 import Post from './Post/Post';
 import styles from './Posts.module.css';
 
 function Posts(props){
-    const {data} = useContext(UserContext);
+    const {data} = useContext(DataContext);
     let posts = null;
     const setPosts = (ordererd)=>{
         posts = ordererd.map((p, i)=>(<Post key={i} post={p}/>));

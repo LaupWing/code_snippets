@@ -21,7 +21,9 @@ function App() {
         data,
         userInfo,
         setUserInfo,
-        addPost} = FirebaseData();
+        addPost,
+        detail,
+        setDetail} = FirebaseData();
     // console.log('Running app');
     // console.log(userInfo);
     const routes = (
@@ -64,15 +66,21 @@ function App() {
                 login,
                 signup, 
                 logout, 
-                data,
                 userInfo,
                 setUserInfo,
-                addPost
             }}
             >
-                {data && <Layout>
-                    {routes}
-                </Layout> }   
+                <DataContext.Provider value={{
+                    data,
+                    addPost,
+                    detail,
+                    setDetail
+                }}
+                >
+                    {data && <Layout>
+                        {routes}
+                    </Layout> }   
+                </DataContext.Provider>
             </UserContext.Provider>
         </div>
     );

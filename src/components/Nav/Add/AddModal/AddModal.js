@@ -2,7 +2,7 @@ import React, {useRef, useState, useContext, useEffect} from 'react';
 import styles from './AddModal.module.css';
 import MyEditor from '../../../Editor/Editor';
 import * as icons from '../../../../icons/icons';
-import UserContext from '../../../../context/UserContext';
+import DataContext from '../../../../context/DataContext';
 
 function AddModal(){
     let content = null;
@@ -11,7 +11,7 @@ function AddModal(){
     const [skill, setSkill] = useState(null);
     const formEl = useRef(null);
     const availableIcons = Object.keys(icons.default); 
-    const user = useContext(UserContext);
+    const {data, addPost} = useContext(DataContext);
 
     const handleSubmit = (e)=>{
         e.preventDefault();
@@ -26,7 +26,7 @@ function AddModal(){
             section: selectedSection,
             createdAt: new Date()
         } 
-        user.addPost(newPost);
+        addPost(newPost);
     }
     const setContent = (text)=>{
         content = text
@@ -41,11 +41,11 @@ function AddModal(){
     
 
     useEffect(()=>{
-        const filtering = user.data
+        const filtering = data
             .filter(s=>s.skill === skill)
             .map(s=>s.section);
         setSections(filtering);
-    },[skill, user.data]);
+    },[skill, data]);
 
     return (
         <form ref={formEl} onSubmit={handleSubmit} className={styles.AddModal}>
