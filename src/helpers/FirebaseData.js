@@ -34,8 +34,8 @@ function FirebaseData(){
         })
     },[]);
 
-    const addPost = (newPost)=>{
-        console.log(newPost);
+    const addPost = async (newPost)=>{
+        return await db.collection('code_snippets').doc().set(newPost);
     }
     return {data, userInfo, setUserInfo, addPost};
 }

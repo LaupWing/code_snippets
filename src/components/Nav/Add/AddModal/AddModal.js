@@ -22,7 +22,8 @@ function AddModal(){
             title: title.value,
             description: description.value,
             content,
-            section: selectedSection
+            category: selectedSection,
+            createdAt: new Date()
         } 
         user.addPost(newPost);
     }
