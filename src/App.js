@@ -21,11 +21,8 @@ function App() {
         data,
         userInfo,
         setUserInfo,
-        addPost,
-        detail,
-        setDetail} = FirebaseData();
-    // console.log('Running app');
-    // console.log(userInfo);
+        addPost} = FirebaseData();
+        
     const routes = (
         <Switch>
             <Route 
@@ -72,9 +69,7 @@ function App() {
             >
                 <DataContext.Provider value={{
                     data,
-                    addPost,
-                    detail,
-                    setDetail
+                    addPost
                 }}
                 >
                     {data && <Layout>
