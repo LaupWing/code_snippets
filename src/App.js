@@ -8,7 +8,8 @@ import Detail from './pages/Detail/Detail'
 import Layout from './hoc/Layout/Layout'
 import FirebaseAuth from './helpers/FirebaseAuth';
 import FirebaseData from './helpers/FirebaseData';
-import UserContext from './context/UserContext'
+import UserContext from './context/UserContext';
+import DataContext from './context/DataContext';
 
 function App() {
     const {
