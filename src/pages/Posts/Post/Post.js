@@ -16,7 +16,7 @@ function Post({post}){
                     <h3>{post.skill}</h3>
                 </div>
                 <div className={styles.content}>
-                    <i><span>{post.skill}: {post.category}</span>{createdAt}</i>
+                    <i><span>{post.skill}: {post.section}</span>{createdAt}</i>
                     <h3>{post.title}</h3>
                     <p>{post.description}</p>
                 </div>
