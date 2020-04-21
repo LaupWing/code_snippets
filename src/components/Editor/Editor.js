@@ -1,7 +1,6 @@
 import React from 'react';
 import {Editor, EditorState, RichUtils} from 'draft-js';
 import 'draft-js/dist/Draft.css';
-import {stateToHTML} from 'draft-js-export-html';
 
 class MyEditor extends React.Component {
     constructor(props) {
@@ -52,7 +51,6 @@ class MyEditor extends React.Component {
 
     render() {
         const {editorState} = this.state;
-        console.log(stateToHTML(this.state.editorState.getCurrentContent()));
         // If the user changes block type before entering any text, we can
         // either style the placeholder or hide it. Let's just hide it now.
         let className = 'RichEditor-editor';
