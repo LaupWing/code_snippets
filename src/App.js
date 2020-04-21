@@ -4,6 +4,7 @@ import {Route, Switch} from 'react-router-dom';
 import Skills from './pages/Skills/Skills'
 import Videos from './pages/Videos/Videos'
 import Posts from './pages/Posts/Posts'
+import Detail from './pages/Detail/Detail'
 import Layout from './hoc/Layout/Layout'
 import FirebaseAuth from './helpers/FirebaseAuth';
 import FirebaseData from './helpers/FirebaseData';
@@ -51,6 +52,7 @@ function App() {
             />
             <Route path="/Videos" component={Videos}/>
             <Route path="/skills" component={Skills}/>
+            <Route path="/detail/:id" component={Detail}/>
         </Switch>
     )
 
