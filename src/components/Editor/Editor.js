@@ -12,7 +12,9 @@ class MyEditor extends React.Component {
         super(props);
         this.decorator =new PrismDecorator({
             prism: Prism,
+            defaultSyntax: "javascript"
         });
+        console.log(this.decorator)
         this.state = {editorState: EditorState.createEmpty(this.decorator)};
 
         this.focus = () => this.refs.editor.focus();
