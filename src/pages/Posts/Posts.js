@@ -11,7 +11,6 @@ function Posts(props){
         posts = ordererd.map((p, i)=>(<Post key={i} post={p}/>));
     }
     if(props.location.pathname.includes('oldest')){
-        console.log('Transform from oldest'); 
         const orderByOldest = data.sort((a,b)=> new Date(a.createdAt.seconds) - new Date(b.createdAt.seconds));
         setPosts(orderByOldest);
     }else if(props.location.pathname.includes('random')){
