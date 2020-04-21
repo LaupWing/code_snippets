@@ -7,6 +7,7 @@ import UserContext from '../../../../context/UserContext';
 function AddModal(){
     let content = null;
     const [sections, setSections] = useState(null);
+    const [selectedSection, setSelectedSection] = useState(null);
     const [skill, setSkill] = useState(null);
     const formEl = useRef(null);
     const availableIcons = Object.keys(icons.default); 
@@ -16,8 +17,14 @@ function AddModal(){
         e.preventDefault();
         const form = formEl.current
         const {title} = form; 
-        const {description} = form; 
-        console.log(title.value, description.value, content);
+        const {description} = form;
+        const newPost = {
+            title: title.value,
+            description: description.value,
+            content,
+            section: selectedSection
+        } 
+        user.addPost(newPost);
     }
     const setContent = (text)=>{
         content = text
@@ -30,9 +37,6 @@ function AddModal(){
         <option>{section}</option>
     ))
     
-    const setSkillAndSection = (event)=>{
-        setSkill(event.target.value);
-    }
 
     useEffect(()=>{
         const filtering = user.data
@@ -44,11 +48,21 @@ function AddModal(){
     return (
         <form ref={formEl} onSubmit={handleSubmit} className={styles.AddModal}>
             <div className={styles.skills}>
-                <select onChange={setSkillAndSection} value={skill}>
+                <select 
+                    onChange={(e)=>{
+                        setSkill(e.target.value);
+                    }} 
+                    value={skill}
+                >
                     <option value="" disabled selected>Select Skill</option>
                     {optionsSkills}
                 </select>
-                <select>
+                <select 
+                    value={selectedSection} 
+                    onChange={(e)=>{
+                        setSelectedSection(e.target.value);
+                    }}
+                >
                     <option value="" disabled selected>Select Section</option>
                     {optionsSections}
                 </select>

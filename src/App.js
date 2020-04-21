@@ -18,7 +18,8 @@ function App() {
     const {
         data,
         userInfo,
-        setUserInfo} = FirebaseData();
+        setUserInfo,
+        addPost} = FirebaseData();
     // console.log('Running app');
     // console.log(userInfo);
     const routes = (
@@ -62,7 +63,8 @@ function App() {
                 logout, 
                 data,
                 userInfo,
-                setUserInfo
+                setUserInfo,
+                addPost
             }}
             >
                 {data && <Layout>
