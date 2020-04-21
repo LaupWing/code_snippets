@@ -3,11 +3,17 @@ import React from 'react';
 import {Editor, EditorState, RichUtils, convertToRaw} from 'draft-js';
 import 'draft-js/dist/Draft.css';
 import './Editor.css';
+import PrismDecorator from 'draft-js-prism';
+import Prism from 'prismjs';
+import 'prismjs/themes/prism.css';
 
 class MyEditor extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {editorState: EditorState.createEmpty()};
+        this.decorator =new PrismDecorator({
+            prism: Prism,
+        });
+        this.state = {editorState: EditorState.createEmpty(this.decorator)};
 
         this.focus = () => this.refs.editor.focus();
         this.onChange = (editorState) => this.setState({editorState});
