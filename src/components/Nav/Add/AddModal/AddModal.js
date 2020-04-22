@@ -19,13 +19,23 @@ function AddModal(){
         const {title} = form; 
         const {description} = form;
         const {new_section} = form;
+        const section = new_section.value === '' ? selectedSection : new_section.value
+
+        if(
+            !title.value ||
+            !description.value ||
+            !new_section.value ||
+            !section
+        ){
+            return alert('You have to fill in all fields!');
+        }
 
         const newPost = {
             title: title.value,
             description: description.value,
             content,
             skill,
-            section: new_section.value === '' ? selectedSection : new_section.value,
+            section,
             createdAt: new Date()
         } 
         addPost(newPost);
