@@ -3,6 +3,9 @@
     display: flex;
     align-items: flex-end;
 }
+.Detail-Header i{
+    opacity: .3;
+}
 
 .skill{
     display: flex;

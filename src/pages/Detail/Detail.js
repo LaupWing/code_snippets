@@ -2,13 +2,13 @@ import React, {useContext} from 'react';
 import DataContext from '../../context/DataContext';
 import Icon from '../../icons/Icon'; 
 import styles from './Detail.module.css';
+import getDate from '.././../helpers/getDate';
 
 function Detail(props){
     const {data} = useContext(DataContext);
     const id  = props.match.params.id;
     const post = data.find(p=>p.id===id);
-    const date = 
-    console.log(post);
+    const date = getDate(post);
 
     return (
         <>
@@ -19,7 +19,7 @@ function Detail(props){
                     <h5>{post.section}</h5>
                 </div>
                 <div className={styles.meta}>
-                    {/* <i>{post.createdAt}</i> */}
+                    <i>{date}</i>
                     <h2>{post.title}</h2>
                     <p>{post.description}</p>
                 </div>
