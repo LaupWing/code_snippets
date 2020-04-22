@@ -1,14 +1,18 @@
-.public-DraftEditorPlaceholder-root,
-.public-DraftEditor-content {
+.DraftEditor-root{
+    padding: 20px;
+    width: 100%;
+}
+.DraftEditor-root .public-DraftEditorPlaceholder-root,
+.DraftEditor-root .public-DraftEditor-content {
     margin: 0 -15px -15px;
     padding: 15px;
 }
 
-.public-DraftEditor-content {
+.DraftEditor-root .public-DraftEditor-content {
     min-height: 100px;
 }
 
-.RichEditor-blockquote {
+.DraftEditor-root .RichEditor-blockquote {
     border-left: 5px solid #eee;
     color: #666;
     font-family: 'Hoefler Text', 'Georgia', serif;
@@ -17,9 +21,28 @@
     padding: 10px 20px;
 }
 
-.public-DraftStyleDefault-pre {
+.DraftEditor-root .public-DraftStyleDefault-pre {
     background-color: rgba(0, 0, 0, 0.05);
     font-family: 'Inconsolata', 'Menlo', 'Consolas', monospace;
     font-size: 16px;
     padding: 20px;
+}
+
+.DraftEditor-root h1{
+    font-size: 2.4rem;
+}
+.DraftEditor-root h2{
+    font-size: 2rem;
+}
+.DraftEditor-root h3{
+    font-size: 1.8rem;
+}
+.DraftEditor-root h4{
+    font-size: 1.6rem;
+}
+.DraftEditor-root h5{
+    font-size: 1.4rem;
+}
+.DraftEditor-root h6{
+    font-size: 1.2rem;
 }
