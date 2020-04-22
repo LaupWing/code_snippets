@@ -1,12 +1,11 @@
 import React from 'react';
 import styles from './Post.module.css';
 import Icon from '../../../icons/Icon';
-import dateFormat from 'dateformat';
+import getDate from '../../../helpers/getDate';
 import {Link} from 'react-router-dom';
 
 function Post({post}){
-    const date = new Date(post.createdAt.seconds*1000);
-    const createdAt = dateFormat(date);
+    const createdAt = getDate(post);
     
     return(
         <Link to={`/detail/${post.id}`}>
