@@ -18,12 +18,14 @@ function AddModal(){
         const form = formEl.current
         const {title} = form; 
         const {description} = form;
+        const {new_section} = form;
+
         const newPost = {
             title: title.value,
             description: description.value,
             content,
             skill,
-            section: selectedSection,
+            section: new_section.value === '' ? selectedSection : new_section.value,
             createdAt: new Date()
         } 
         addPost(newPost);
@@ -69,7 +71,7 @@ function AddModal(){
                     {optionsSections}
                 </select>
                  or
-                <input type="text" placeholder="New Section"></input>
+                <input name="new_section" type="text" placeholder="New Section"></input>
             </div>
             <input name="title" type="text" placeholder="Title of code"></input>
             <input name="description" type="text" placeholder="Your Description"></input>
