@@ -8,6 +8,7 @@ import './Content.css';
 
 function Content({content}){
     const [editorState, setEditorState] = useState(null);
+
     useEffect(()=>{
         const blocks = convertFromRaw(content);
         const decorator =new PrismDecorator({
@@ -16,7 +17,7 @@ function Content({content}){
         });
 
         setEditorState(EditorState.createWithContent(blocks, decorator));
-    },[])
+    },[content])
     
     return (
         editorState && <Editor

@@ -1,6 +1,9 @@
 .DraftEditor-root{
     padding: 20px;
     width: 100%;
+    background: var(--secundairColor);
+    border: solid var(--borderColor) 1px;
+    margin-top: 20px;
 }
 .DraftEditor-root .public-DraftEditorPlaceholder-root,
 .DraftEditor-root .public-DraftEditor-content {

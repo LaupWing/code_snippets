@@ -58,7 +58,8 @@ function AddModal(){
         const filtering = data
             .filter(s=>s.skill === skill)
             .map(s=>s.section);
-        setSections(filtering);
+        const removeDuplicates = filtering.filter((item,index)=>filtering.indexOf(item)===index);
+        setSections(removeDuplicates);
     },[skill, data]);
 
     return (
