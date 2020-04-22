@@ -1,6 +1,6 @@
 .cls-1{
-    fill:#ffd721;
+    fill:var(--highlightColor);
 }
 .cls-2{
-    fill:#364a5e;
+    fill:var(--highlightColor2);
 }

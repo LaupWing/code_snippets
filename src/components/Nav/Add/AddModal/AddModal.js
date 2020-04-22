@@ -25,6 +25,8 @@ function AddModal(){
             !title.value ||
             !description.value ||
             !new_section.value ||
+            !content ||
+            !skill ||
             !section
         ){
             return alert('You have to fill in all fields!');
