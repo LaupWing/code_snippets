@@ -13,7 +13,8 @@
     align-items: center;
 }
 
-.Section h2:first-of-type{
+.Section > h2:first-of-type,
+.Section header h2:first-of-type{
     font-size: 2rem;
     width: 100%;
 }
