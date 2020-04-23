@@ -13,9 +13,9 @@ export default class ArrayHelpers{
         }
         return a;
     }
-    removeDuplicates(array){
+    static removeDuplicates(array){
         return array.filter(function(item, pos) {
-            return a.indexOf(item) == pos;
+            return array.indexOf(item) === pos;
         });
     }
 }

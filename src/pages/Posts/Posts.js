@@ -3,7 +3,7 @@ import {useContext} from 'react';
 import DataContext from '../../context/DataContext';
 import Post from './Post/Post';
 import styles from './Posts.module.css';
-import ArrayHelpers from '../../helpers/arrayhelpers';
+import ArrayHelpers from '../../helpers/Arrayhelpers';
 
 function Posts(props){
     const {data} = useContext(DataContext);

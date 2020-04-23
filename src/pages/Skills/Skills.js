@@ -1,12 +1,17 @@
 import React, {useContext} from 'react';
 import DataContext from '../../context/DataContext';
-import ArrayHelpers from '../../helpers/arrayhelpers';
+import ArrayHelpers from '../../helpers/Arrayhelpers';
 function Skills(){
     const {data} = useContext(DataContext);
-    const categorize = data
-        .map(d=>d.skill)
-        .filter(ArrayHelpers.removeDuplicates)
-    console.log
+    const categorize = ArrayHelpers
+        .removeDuplicates(data.map(d=>d.skill))
+        .map(d=>{
+            return{
+                skill: d,
+                posts: data.filter(x=>x.skill===d) 
+            };
+        });
+    console.log(categorize)
     return (
         <React.Fragment>
             <h2>Skills</h2>
