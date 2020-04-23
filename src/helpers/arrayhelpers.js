@@ -3,7 +3,7 @@ export default class ArrayHelpers{
     * Shuffles array in place.
     * @param {Array} a items An array containing the items.
     */
-   static shuffle(a) {
+    static shuffle(a) {
         var j, x, i;
         for (i = a.length - 1; i > 0; i--) {
             j = Math.floor(Math.random() * (i + 1));
@@ -12,5 +12,10 @@ export default class ArrayHelpers{
             a[j] = x;
         }
         return a;
-   }
+    }
+    removeDuplicates(array){
+        return array.filter(function(item, pos) {
+            return a.indexOf(item) == pos;
+        });
+    }
 }
