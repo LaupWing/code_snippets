@@ -3,6 +3,7 @@ import {useContext} from 'react';
 import DataContext from '../../context/DataContext';
 import Post from './Post/Post';
 import styles from './Posts.module.css';
+import ArrayHelpers from '../../helpers/arrayhelpers';
 
 function Posts(props){
     const {data} = useContext(DataContext);
@@ -14,7 +15,8 @@ function Posts(props){
         const orderByOldest = data.sort((a,b)=> new Date(a.createdAt.seconds) - new Date(b.createdAt.seconds));
         setPosts(orderByOldest);
     }else if(props.location.pathname.includes('random')){
-        console.log('Transform data random');
+        const randomized = ArrayHelpers.shuffle(data);
+        setPosts(randomized);
     }else{
         const orderByRecent = data.sort((a,b)=>new Date(b.createdAt.seconds) - new Date(a.createdAt.seconds));
         setPosts(orderByRecent);
