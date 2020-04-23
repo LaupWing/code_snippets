@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './Skill.module.css';
 
-function Skill({skill, posts}){
-    console.log(posts);
+function Skill({skill}){
+    console.log(skill);
     return(
-        <div className={styles.Skill}>{skill}</div>
+        <div className={styles.Skill}>{skill.skill}</div>
     );
 }
 
