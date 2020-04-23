@@ -31,7 +31,7 @@ function FirebaseData(){
                     .doc(user.uid).get()
                 setUserInfo(result.data())
             }
-        })
+        });
     },[]);
 
     const addPost = async (newPost)=>{
