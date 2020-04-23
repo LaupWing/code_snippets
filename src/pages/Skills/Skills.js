@@ -13,10 +13,10 @@ function Skills(){
         });
     console.log(categorize);
     return (
-        <React.Fragment>
+        <>
             <h2>Skills</h2>
             <p>Orderd and categorised by skill. Click on the skill to have get more detail or use the arrows to fold out for an quick overview.</p>
-        </React.Fragment>
+        </>
     );
 }
 
