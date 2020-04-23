@@ -11,7 +11,7 @@ function Skills(){
                 posts: data.filter(x=>x.skill===d) 
             };
         });
-    console.log(categorize)
+    console.log(categorize);
     return (
         <React.Fragment>
             <h2>Skills</h2>
