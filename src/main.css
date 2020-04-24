@@ -6,6 +6,7 @@
     --highlightColor: #FFD722;
     --highlightColor2: #364a5e;
     --borderColor: rgba(0,0,0,.2);
+    --layoutPadding: 40px;
     --maxWidth: 1000px;
     --baseWidth: 90vw;
     --backdrop: rgba(0,0,0,.8);

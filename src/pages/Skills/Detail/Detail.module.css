@@ -1,0 +1,43 @@
+.Detail-Header{
+    width: 100%;
+    display: flex;
+}
+.Detail-Header svg{
+    width: 80px;
+}
+.Detail-Header h2{
+    text-transform: uppercase;
+    color: var(--highlightColor2);
+}
+
+.meta{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-left: 10px;
+}
+
+.meta p{
+    font-size: .9em;
+    text-transform: uppercase;
+}
+.meta p span{
+    font-weight: bold;
+}
+
+.backBtn{
+    align-self: flex-start;
+    margin-bottom: 10px;
+    border: solid var(--highlightColor) 2px;
+    background: transparent;
+    color: var(--highlightColor2);
+    font-size: .7em;
+    margin-left: calc(var(--layoutPadding) * -1);;
+    font-weight: bold;
+    border-radius: 0 15px 15px 0;
+}
+.backBtn:hover{
+    background: var(--highlightColor);
+    color: var(--highlightColor2);
+}
