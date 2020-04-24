@@ -1,0 +1,20 @@
+.Skill{
+    border: solid 2px var(--borderColor);
+    width: 200px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Skill svg{
+    width: 80%;
+}
+
+.Skill h2{
+    margin: 5px 0;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
