@@ -1,7 +1,10 @@
 import React from 'react';
 
-function Detail(){
-
+function Detail(props){
+    console.log(props);
+    return (
+        <div>Detail</div>
+    );
 }
 
 export default Detail;

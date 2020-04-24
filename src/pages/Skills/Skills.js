@@ -8,10 +8,19 @@ function Skills(){
     return (
         <>
             <Switch>
-                <Route path="/skills" exact render={
-                    ()=><Overview data={data}/>
-                }/>
-                <Route path="/skills/:id" component={()=><div>skills Id</div>}/>
+                <Route 
+                    path="/skills" 
+                    exact 
+                    render={()=><
+                        Overview 
+                            data={data}
+                        />
+                    }
+                />
+                <Route 
+                    path="/skills/:id" 
+                    component={()=><div>skills Id</div>}
+                />
             </Switch>
         </>
     );
