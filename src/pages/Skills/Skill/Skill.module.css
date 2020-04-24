@@ -18,3 +18,12 @@
     text-transform: uppercase;
     font-size: 1.2em;
 }
+
+.Skill h2 span{
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 1em;
+    border: solid 2px var(--borderColor);
+    font-weight: normal;
+    opacity: .7;
+}
