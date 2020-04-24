@@ -1,17 +1,9 @@
 import React from 'react';
 import styles from './Overview.module.css'
-import ArrayHelpers from '../../../helpers/Arrayhelpers';
 import Skill from './Skill/Skill';
 
 function Overview({data}){
-    const skills = ArrayHelpers
-        .removeDuplicates(data.map(d=>d.skill))
-        .map(d=>{
-            return{
-                skill: d,
-                posts: data.filter(x=>x.skill===d) 
-            };
-        })
+    const skills = data
         .map((d,i)=><Skill key={i} skill={d}/>);
     return (
         <>

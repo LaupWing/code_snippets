@@ -1,7 +1,11 @@
 import React from 'react';
+import {useParams} from 'react-router-dom';
 
-function Detail(props){
-    console.log(props);
+function Detail({data}){
+    const {id} = useParams();
+    const detail = data.find(s=>s.skill ===id);
+    console.log(detail);
+
     return (
         <div>Detail</div>
     );
