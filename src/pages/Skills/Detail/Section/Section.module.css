@@ -7,6 +7,11 @@
 }
 .Section_Title{
     font-weight: bold;
+    transition: background .25s;
+}
+.Section_Title:hover{
+    background: rgba(0,0,0,.1);
+    cursor: pointer;
 }
 .Section_Title, .Section .post{
     padding: 10px;
@@ -16,9 +21,19 @@
 }
 
 .Section .post{
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
     margin: 0 30px;
-    border-top: none;
+    border: none;
     border-radius: 0;
+    transition: max-height .5s, border .5s, padding .5s;
+}
+.Section .open{
+    max-height: 1000px;
+    padding: 10px;
+    border: solid 1px var(--borderColor);
+    border-top: none;
 }
 .Section .post .title{
     opacity: 1!important;
