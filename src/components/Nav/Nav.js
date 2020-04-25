@@ -1,10 +1,12 @@
-import React,{ useContext} from 'react';
+import React,{ useContext, useState} from 'react';
 import styles from './Nav.module.css';
 import UserContext from '../../context/UserContext';
 import AddBtn from './Add/AddBtn';
 
 export default (props)=>{
     const {user, logout, userInfo, setUserInfo} = useContext(UserContext);
+    const [search, setSearch] = useState('');
+
     const loggingOut = ()=>{
         logout();
         setUserInfo(null);
@@ -14,7 +16,12 @@ export default (props)=>{
         <header className={styles.Header}>
             <nav className={styles.Nav}>
                 <h1>Code Snippets</h1>
-                <input type="text" placeholder="What do you want to find?..."></input>
+                <div className={styles.Search}>
+                    <input 
+                        type="text" 
+                        placeholder="What do you want to find?..."
+                    ></input>
+                </div>
                 {!user ? 
                     <button onClick={props.setModal} className={styles.Auth}>Login</button> :
                     <button onClick={loggingOut} className={styles.Auth}>Logout</button>
