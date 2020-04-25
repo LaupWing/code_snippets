@@ -2,14 +2,15 @@ import React from 'react';
 import {useParams, useHistory} from 'react-router-dom';
 import Icon from '../../../icons/Icon';
 import styles from './Detail.module.css';
-import ArrayHelpers from '../../../helpers/Arrayhelpers'
+import ArrayHelpers from '../../../helpers/Arrayhelpers';
+import Section from './Section/Section';
 
 function Detail({data}){
     const {id} = useParams();
     const detail = data.find(s=>s.skill ===id);
     const sections = ArrayHelpers.removeDuplicates(detail.posts.map(x=>x.section));
     const {push} = useHistory();
-
+    console.log(sections)
     return (
         <>
             <button onClick={()=>push('/skills')} className={styles.backBtn}>Back to Overview</button>
@@ -23,7 +24,15 @@ function Detail({data}){
                     </p>
                 </div>
             </header>
-            Detail
+            <section>
+                {sections && sections.map((section, i)=>(
+                    <Section
+                        section={section}
+                        data={data}
+                        key={i}
+                    />
+                ))}
+            </section>
         </>
     );
 }
