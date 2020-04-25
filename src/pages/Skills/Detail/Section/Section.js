@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 function Section({section, data}){
     const [open, setOpen] = useState(false);
-    console.log(data);
+    
     return (
         <div className={styles.Section}>
             <h2 
