@@ -1,11 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Section.module.css'
 
 function Section({section, data}){
+    const [open, setOpen] = useState(false);
     console.log(data);
     return (
         <div className={styles.Section}>
-            <h2>{section}</h2>
+            <h2 
+                onClick={()=>setOpen(!open)} 
+                className={styles.Section_Title}
+            >
+                {section}
+            </h2>
+            {data && data.map(d=>(
+                <div className={[styles.post, open ? styles.open : null].join(' ')}>
+                    <p className={styles.title}>{d.title}</p>
+                    <p className={styles.description}>{d.description}</p>
+                </div>
+
+            ))}
         </div>
     );
 }

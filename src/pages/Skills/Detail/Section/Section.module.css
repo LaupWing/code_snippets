@@ -1,13 +1,30 @@
 .Section{
     max-width: 600px;
-    padding: 10px;
-    border: solid 1px var(--borderColor);
-    margin: 10px 0;
-    border-radius: 5px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.Section_Title{
+    font-weight: bold;
+}
+.Section_Title, .Section .post{
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px var(--borderColor);
+    font-size: 1em;
 }
 
-.Section h2{
-    font-weight: normal;
-    font-size: 1em;
+.Section .post{
+    margin: 0 30px;
+    border-top: none;
+    border-radius: 0;
+}
+.Section .post .title{
+    opacity: 1!important;
+}
+
+.description{
+    font-size: .8em;
+    opacity: .5;
 }

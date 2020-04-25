@@ -10,7 +10,7 @@ function Detail({data}){
     const detail = data.find(s=>s.skill ===id);
     const sections = ArrayHelpers.removeDuplicates(detail.posts.map(x=>x.section));
     const {push} = useHistory();
-    console.log(sections)
+    
     return (
         <>
             <button onClick={()=>push('/skills')} className={styles.backBtn}>Back to Overview</button>
@@ -28,7 +28,7 @@ function Detail({data}){
                 {sections && sections.map((section, i)=>(
                     <Section
                         section={section}
-                        data={data}
+                        data={detail.posts.filter(x=>x.section === section)}
                         key={i}
                     />
                 ))}
