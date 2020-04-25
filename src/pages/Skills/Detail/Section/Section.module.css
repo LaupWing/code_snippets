@@ -1,0 +1,13 @@
+.Section{
+    max-width: 600px;
+    padding: 10px;
+    border: solid 1px var(--borderColor);
+    margin: 10px 0;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.Section h2{
+    font-weight: normal;
+    font-size: 1em;
+}

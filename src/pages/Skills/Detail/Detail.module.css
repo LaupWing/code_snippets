@@ -41,3 +41,11 @@
     background: var(--highlightColor);
     color: var(--highlightColor2);
 }
+
+.Detail-Section{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}

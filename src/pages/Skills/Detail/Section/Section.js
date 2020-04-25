@@ -1,8 +1,13 @@
 import React from 'react';
+import styles from './Section.module.css'
 
-function Section(props){
-    console.log(props);
-    return (<div>Derp</div>);
+function Section({section, data}){
+    console.log(data);
+    return (
+        <div className={styles.Section}>
+            <h2>{section}</h2>
+        </div>
+    );
 }
 
 export default Section;

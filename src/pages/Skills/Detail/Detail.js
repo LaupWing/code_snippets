@@ -24,7 +24,7 @@ function Detail({data}){
                     </p>
                 </div>
             </header>
-            <section>
+            <section className={styles['Detail-Section']}>
                 {sections && sections.map((section, i)=>(
                     <Section
                         section={section}
