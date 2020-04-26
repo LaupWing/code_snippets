@@ -5,11 +5,10 @@ import SearchHelper from '../../../helpers/SearchHelper';
 function Results({search}){
     const {data} = useContext(DataContext);
     const [cleanData, setCleanData] = useState([]);
-    
+
     useEffect(()=>{
         const cleanup = data
             .map(d=>{
-                console.log(d)
                 d.content = d.content.blocks
                     .map(x=>x.text)
                     .filter(x=>x!=='')
