@@ -22,7 +22,7 @@ function App() {
         userInfo,
         setUserInfo,
         addPost} = FirebaseData();
-    console.log('rendering')
+        
     const routes = (
         <Switch>
             <Route 
