@@ -1,27 +1,32 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import DataContext from '../../../context/DataContext';
 import SearchHelper from '../../../helpers/SearchHelper';
 
-function Search({search}){
+function Results({search}){
     const {data} = useContext(DataContext);
-    console.log(data)
-    const cleanup = data
-        .map(d=>{
-            d.content = d.content.blocks
-                .map(x=>x.text)
-                .filter(x=>x!=='')
-                .join(' ');
-            return {
-                content: d.content,
-                title: d.title,
-                description: d.description
-            }
-        })
+    const [cleanData, setCleanData] = useState([]);
+    
+    useEffect(()=>{
+        const cleanup = data
+            .map(d=>{
+                console.log(d)
+                d.content = d.content.blocks
+                    .map(x=>x.text)
+                    .filter(x=>x!=='')
+                    .join(' ');
+                return {
+                    content: d.content,
+                    title: d.title,
+                    description: d.description
+                }
+            });
+        setCleanData(cleanup);
+    },[data]);
 
-    // SearchHelper(cleanup , search)
+    SearchHelper(cleanData , search)
     return(
         <div></div>
     );
 }
 
-export default Search;
+export default Results;
