@@ -36,7 +36,7 @@ export default class SearchHelper{
                     titleMatch, 
                     descriptionMatch
                 };
-                return {...post, match}
+                return {...post, match};
             });
     }
 }
