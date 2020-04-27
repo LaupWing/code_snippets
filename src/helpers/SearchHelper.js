@@ -1,36 +1,33 @@
-export default class SearchHelper{
-    constructor(data, search){
-        this.searching = this.format(search);
-        this.data = data;
-        return this.result();
-    }
+import React from 'react';
 
-    format(string){
-        return string
-            .split(' ')
-            .filter(x=>x!=='');
-    }
-
-    similarityObj({content, title, description}){
-        return {
-            contentMatch : this.checkSimilarity(this.format(content)),
-            titleMatch : this.checkSimilarity(this.format(title)),
-            descriptionMatch : this.checkSimilarity(this.format(description))
-        }
-    }
-
-    checkSimilarity(formatted){
-        return this.searching.every(s=>formatted.find(c=>c.toLowerCase().includes(s.toLowerCase())));
+function SearchResults({data, search}){
+    const splitBySpaces = string => string
+        .split(' ')
+        .filter(x=>x!=='');
+    
+    const searching = splitBySpaces(search);
+    
+    const checkSimilarity = formatted=>{
+        return searching.every(s=>formatted.find(c=>{
+            return c.toLowerCase().includes(s.toLowerCase())
+        }));
     };
 
-    result(){
-        return this.data
+    const similarityObj = ({content, title, description})=>({
+        contentMatch : checkSimilarity(splitBySpaces(content)),
+        titleMatch : checkSimilarity(splitBySpaces(title)),
+        descriptionMatch : checkSimilarity(splitBySpaces(description))
+    })
+    
+    // Testing phace
+    React.useEffect(()=>{
+        const test = data
             .filter(post=>{
-                const {contentMatch, titleMatch, descriptionMatch} = this.similarityObj(post);
+                const {contentMatch, titleMatch, descriptionMatch} = similarityObj(post);
                 return (contentMatch||descriptionMatch || titleMatch) ? post : null;
             })
             .map(post=>{
-                const {contentMatch, titleMatch, descriptionMatch} = this.similarityObj(post);
+                const {contentMatch, titleMatch, descriptionMatch} = similarityObj(post);
                 const match = {
                     contentMatch, 
                     titleMatch, 
@@ -38,10 +35,62 @@ export default class SearchHelper{
                 };
                 return {...post, match};
             });
-    }
+        console.log(test);
+    },[search, data, checkSimilarity])
+    
+    return (
+        <div></div>
+    )
 }
+
+export default SearchResults;
+
 
 
 
 // Some old code i may use it later!!!
+// #####################################
 // const findSimilarity = c=>searching.find(s=>c.toLowerCase().includes(s.toLowerCase()) ? c : null);
+
+// export default class SearchHelper{
+//     constructor(data, search){
+//         this.searching = this.format(search);
+//         this.data = data;
+//         return this.result();
+//     }
+
+//     format(string){
+//         return string
+//             .split(' ')
+//             .filter(x=>x!=='');
+//     }
+
+//     similarityObj({content, title, description}){
+//         return {
+//             contentMatch : this.checkSimilarity(this.format(content)),
+//             titleMatch : this.checkSimilarity(this.format(title)),
+//             descriptionMatch : this.checkSimilarity(this.format(description))
+//         }
+//     }
+
+//     checkSimilarity(formatted){
+//         return this.searching.every(s=>formatted.find(c=>c.toLowerCase().includes(s.toLowerCase())));
+//     };
+
+//     result(){
+//         return this.data
+//             .filter(post=>{
+//                 const {contentMatch, titleMatch, descriptionMatch} = this.similarityObj(post);
+//                 return (contentMatch||descriptionMatch || titleMatch) ? post : null;
+//             })
+//             .map(post=>{
+//                 const {contentMatch, titleMatch, descriptionMatch} = this.similarityObj(post);
+//                 const match = {
+//                     contentMatch, 
+//                     titleMatch, 
+//                     descriptionMatch
+//                 };
+//                 return {...post, match};
+//             });
+//     }
+// }

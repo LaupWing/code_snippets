@@ -18,10 +18,10 @@ function Results({search}){
             });
         setCleanData(cleanup);
     },[data]);
-    const searchResult = new SearchHelper(cleanData , search);
-    console.log(searchResult);
+    const searchResult = <SearchHelper data={cleanData} search={search}/>;
+    // console.log(searchResult);
     return(
-        <div></div>
+        <div>{searchResult}</div>
     );
 }
 
