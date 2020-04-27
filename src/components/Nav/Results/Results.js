@@ -14,16 +14,12 @@ function Results({search}){
                     .map(x=>x.text)
                     .filter(x=>x!=='')
                     .join(' ');
-                return {
-                    content: copy.content,
-                    title: copy.title,
-                    description: copy.description
-                }
+                return copy
             });
         setCleanData(cleanup);
     },[data]);
 
-    SearchHelper(cleanData , search);
+    console.log(SearchHelper(cleanData , search));
     return(
         <div></div>
     );

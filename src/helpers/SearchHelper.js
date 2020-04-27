@@ -5,22 +5,28 @@ export default (data, search)=>{
             .filter(x=>x!=='');
     }
     const searching = format(search); 
-    const findSimilarity = c=>searching.find(s=>c.includes(s) ? c : null)
-
-    const testing =  data.filter(post=>{
-        const {content, title, description} = post;
-        const contentMatch =  format(content).find(findSimilarity);
-        const titleMatch =  format(title).find(findSimilarity);
-        const descriptionMatch =  format(description).find(findSimilarity);
-        if(contentMatch){
-            console.log({
-                contentMatch,
-                titleMatch,
-                descriptionMatch
-            });
-        }
-        return (contentMatch||descriptionMatch || titleMatch) ? post : null;
+    const findSimilarity = c=>searching.find(s=>c.toLowerCase().includes(s.toLowerCase()) ? c : null)
+    const similarityObj = ({content, title, description})=>({
+        contentMatch : format(content).find(findSimilarity),
+        titleMatch : format(title).find(findSimilarity),
+        descriptionMatch : format(description).find(findSimilarity)
     });
-    console.log(testing);
+
+    const searchedData =  data
+        .filter(post=>{
+            const {contentMatch, titleMatch, descriptionMatch} = similarityObj(post);
+            return (contentMatch||descriptionMatch || titleMatch) ? post : null;
+        })
+        .map(post=>{
+            const {contentMatch, titleMatch, descriptionMatch} = similarityObj(post);
+            const match = {
+                contentMatch, 
+                titleMatch, 
+                descriptionMatch
+            }
+            return {...post, match}
+        });
+    // console.log(testing);
     // console.log(test)
+    return searchedData
 }
