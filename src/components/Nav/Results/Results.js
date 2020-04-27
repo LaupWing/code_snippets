@@ -18,8 +18,8 @@ function Results({search}){
             });
         setCleanData(cleanup);
     },[data]);
-
-    console.log(SearchHelper(cleanData , search));
+    const searchResult = new SearchHelper(cleanData , search);
+    console.log(searchResult);
     return(
         <div></div>
     );
