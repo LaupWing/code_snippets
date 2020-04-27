@@ -2,24 +2,28 @@ export default class SearchHelper{
     constructor(data, search){
         this.searching = this.format(search);
         this.data = data;
-        return this.result()
+        return this.result();
     }
 
-    format = string =>{
+    format(string){
         return string
             .split(' ')
             .filter(x=>x!=='');
     }
 
-    similarityObj = ({content, title, description})=>({
-        contentMatch : this.checkSimilarity(this.format(content)),
-        titleMatch : this.checkSimilarity(this.format(title)),
-        descriptionMatch : this.checkSimilarity(this.format(description))
-    })
+    similarityObj({content, title, description}){
+        return {
+            contentMatch : this.checkSimilarity(this.format(content)),
+            titleMatch : this.checkSimilarity(this.format(title)),
+            descriptionMatch : this.checkSimilarity(this.format(description))
+        }
+    }
 
-    checkSimilarity = formatted => this.searching.every(s=>formatted.find(c=>c.toLowerCase().includes(s.toLowerCase())));
+    checkSimilarity(formatted){
+        return this.searching.every(s=>formatted.find(c=>c.toLowerCase().includes(s.toLowerCase())));
+    };
 
-    result = ()=>{
+    result(){
         return this.data
             .filter(post=>{
                 const {contentMatch, titleMatch, descriptionMatch} = this.similarityObj(post);
@@ -31,7 +35,7 @@ export default class SearchHelper{
                     contentMatch, 
                     titleMatch, 
                     descriptionMatch
-                }
+                };
                 return {...post, match}
             });
     }
