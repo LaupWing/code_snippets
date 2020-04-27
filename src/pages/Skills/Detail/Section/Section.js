@@ -14,7 +14,7 @@ function Section({section, data}){
                 {section}
             </h2>
             {data && data.map(d=>(
-                <Link to={`/detail/${d.id}`}>
+                <Link key={d.id} to={`/detail/${d.id}`}>
                     <div 
                         className={[styles.post, open ? styles.open : null].join(' ')}
                     >
