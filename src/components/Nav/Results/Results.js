@@ -9,20 +9,21 @@ function Results({search}){
     useEffect(()=>{
         const cleanup = data
             .map(d=>{
-                d.content = d.content.blocks
+                const copy = {...d}; 
+                copy.content = d.content.blocks
                     .map(x=>x.text)
                     .filter(x=>x!=='')
                     .join(' ');
                 return {
-                    content: d.content,
-                    title: d.title,
-                    description: d.description
+                    content: copy.content,
+                    title: copy.title,
+                    description: copy.description
                 }
             });
         setCleanData(cleanup);
     },[data]);
 
-    SearchHelper(cleanData , search)
+    SearchHelper(cleanData , search);
     return(
         <div></div>
     );
