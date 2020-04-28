@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 
 function SearchResults({data, search}){
     const splitBySpaces = string => string
@@ -7,17 +7,17 @@ function SearchResults({data, search}){
     
     const searching = splitBySpaces(search);
     
-    const checkSimilarity = formatted=>{
+    const checkSimilarity = useCallback(formatted=>{
         return searching.every(s=>formatted.find(c=>{
             return c.toLowerCase().includes(s.toLowerCase())
         }));
-    };
+    },[searching]);
 
-    const similarityObj = ({content, title, description})=>({
+    const similarityObj = useCallback(({content, title, description})=>({
         contentMatch : checkSimilarity(splitBySpaces(content)),
         titleMatch : checkSimilarity(splitBySpaces(title)),
         descriptionMatch : checkSimilarity(splitBySpaces(description))
-    })
+    }),[checkSimilarity]);
     
     // Testing phace
     React.useEffect(()=>{
@@ -36,7 +36,7 @@ function SearchResults({data, search}){
                 return {...post, match};
             });
         console.log(test);
-    },[search, data, checkSimilarity])
+    },[search, data, checkSimilarity, similarityObj])
     
     return (
         <div></div>
