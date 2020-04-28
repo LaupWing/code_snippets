@@ -11,7 +11,7 @@ function Results({search}){
             .map(d=>{
                 const copy = {...d}; 
                 copy.content = d.content.blocks
-                    .map(x=>x.text)
+                    .map(x=>x.text.trim())
                     .filter(x=>x!=='')
                     .join(' ');
                 return copy

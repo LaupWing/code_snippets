@@ -34,9 +34,26 @@ function SearchResults({data, search}){
                     descriptionMatch
                 };
                 return {...post, match};
+            })
+            .map(post=>{
+                for(const key in post.match){
+                    if(post.match[key]){
+                        const type = key.split('Match')[0];
+                        const valueOfKey = post[type];
+                        const highlight = splitBySpaces(valueOfKey)
+                            .map(x=>x);
+                        // splitBySpaces
+                        console.log(searching);
+                        console.log(valueOfKey);
+                        const p = <p></p>;
+                        // console.log(post.match[key]);
+                    }
+                }
+                console.log(post.match);
+                return post;
             });
         console.log(test);
-    },[search, data, checkSimilarity, similarityObj])
+    },[search, data, checkSimilarity, similarityObj]);
     
     return (
         <div></div>
