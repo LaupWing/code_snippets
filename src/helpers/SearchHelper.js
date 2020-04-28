@@ -41,10 +41,17 @@ function SearchResults({data, search}){
                         const type = key.split('Match')[0];
                         const valueOfKey = post[type];
                         const highlight = splitBySpaces(valueOfKey)
-                            .map(x=>x);
+                            .map(c=>{
+                                console.log(searching.includes(c));
+                                console.log(c);
+                                if(searching.includes(c)){
+                                    return <span>{c}</span>
+                                }
+                                return c
+                            });
                         // splitBySpaces
-                        console.log(searching);
                         console.log(valueOfKey);
+                        console.log(highlight);
                         const p = <p></p>;
                         // console.log(post.match[key]);
                     }
