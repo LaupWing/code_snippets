@@ -42,9 +42,8 @@ function SearchResults({data, search}){
                         const valueOfKey = post[type];
                         const highlight = splitBySpaces(valueOfKey)
                             .map(c=>{
-                                console.log(searching.includes(c));
-                                console.log(c);
-                                if(searching.includes(c)){
+                                if(searching.find(x=>c.includes(x))){
+                                    console.log(c);
                                     return <span>{c}</span>
                                 }
                                 return c
