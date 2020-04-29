@@ -1,6 +1,6 @@
 import React from 'react';
 import Result from './Result/Result';
-import styles from './Results.module.css'; 
+// import styles from './Results.module.css'; 
 
 function SearchResults({data, search}){
     const splitBySpaces = string => string

@@ -1,10 +1,13 @@
 import React from 'react';
+import Icon from '../../../../../icons/Icon';
 
-function Result(props){
+function Result({post}){
     console.log('Coming from result');
-    console.log(props);
+    console.log(post);
+
     return (
         <div>
+            <Icon skill={post.skill}/>
             result
         </div>
     );
