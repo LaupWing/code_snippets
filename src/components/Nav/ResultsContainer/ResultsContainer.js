@@ -1,8 +1,8 @@
 import React, {useContext, useState, useEffect} from 'react';
 import DataContext from '../../../context/DataContext';
-import SearchHelper from '../../../helpers/SearchHelper';
+import Results from './Results/Results';
 
-function Results({search}){
+function ResultsContainer({search}){
     const {data} = useContext(DataContext);
     const [cleanData, setCleanData] = useState([]);
 
@@ -18,11 +18,10 @@ function Results({search}){
             });
         setCleanData(cleanup);
     },[data]);
-    const searchResult = <SearchHelper data={cleanData} search={search}/>;
-    // console.log(searchResult);
+    const searchResult = <Results data={cleanData} search={search}/>;
     return(
         <div>{searchResult}</div>
     );
 }
 
-export default Results;
+export default ResultsContainer;
