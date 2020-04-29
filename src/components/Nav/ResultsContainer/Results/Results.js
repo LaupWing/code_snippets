@@ -1,5 +1,6 @@
 import React from 'react';
 import Result from './Result/Result';
+import styles from './Results.module.css'; 
 
 function SearchResults({data, search}){
     const splitBySpaces = string => string
@@ -61,10 +62,9 @@ function SearchResults({data, search}){
         });
     // },[searching, data, checkSimilarity, similarityObj]);
     console.log(results);
-    const testingResult = results.map(x=><Result post={x}/>);
-    console.log(testingResult);
+    const testingResult = results.map(x=><Result key={x.id} post={x}/>);
     return (
-        <div>{console.log(results)}</div>
+        <>{testingResult}</>
     )
 }
 

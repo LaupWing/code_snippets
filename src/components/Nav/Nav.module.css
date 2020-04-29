@@ -11,6 +11,7 @@
     align-items: center;
     width: var(--baseWidth);
     max-width: var(--maxWidth);
+    position: relative;
 }
 
 .Search{
