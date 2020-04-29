@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useContext, useState, useEffect, useRef} from 'react';
 import DataContext from '../../../context/DataContext';
 import Results from './Results/Results';
 import styles from './ResultsContainer.module.css';
@@ -6,7 +6,7 @@ import styles from './ResultsContainer.module.css';
 function ResultsContainer({search}){
     const {data} = useContext(DataContext);
     const [cleanData, setCleanData] = useState([]);
-
+    const container = useRef();
     useEffect(()=>{
         const cleanup = data
             .map(d=>{
@@ -19,11 +19,14 @@ function ResultsContainer({search}){
             });
         setCleanData(cleanup);
     },[data]);
-
+    const parentWidth = container.current ? 
+        container.current.parentElement.offsetWidth : 
+        null ;
+    console.log(parentWidth);
     const searchResult = <Results data={cleanData} search={search}/>;
     
     return(
-        <div className={styles.container}>{searchResult}</div>
+        <div ref={container} style={{width: `${parentWidth}px`}} className={styles.container}>{searchResult}</div>
     );
 }
 
