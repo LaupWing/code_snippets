@@ -18,7 +18,9 @@ function ResultsContainer({search}){
             });
         setCleanData(cleanup);
     },[data]);
+
     const searchResult = <Results data={cleanData} search={search}/>;
+    
     return(
         <div>{searchResult}</div>
     );
