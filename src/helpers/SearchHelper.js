@@ -40,7 +40,7 @@ function SearchResults({data, search}){
                     if(post.match[key]){
                         const type = key.split('Match')[0];
                         const valueOfKey = post[type];
-                        const highlight = splitBySpaces(valueOfKey)
+                        const highlighted = splitBySpaces(valueOfKey)
                             .map(c=>{
                                 const simalarWord = searching.find(x=>c.includes(x))
                                 if(simalarWord){
@@ -54,14 +54,9 @@ function SearchResults({data, search}){
                                 }
                                 return c;
                             });
-                        // splitBySpaces
-                        console.log(valueOfKey);
-                        console.log(highlight);
-                        const p = <p></p>;
-                        // console.log(post.match[key]);
+                        post.match[key] =  <p>{highlighted}</p>;
                     }
                 }
-                console.log(post.match);
                 return post;
             });
         console.log(test);
@@ -73,53 +68,3 @@ function SearchResults({data, search}){
 }
 
 export default SearchResults;
-
-
-
-
-// Some old code i may use it later!!!
-// #####################################
-// const findSimilarity = c=>searching.find(s=>c.toLowerCase().includes(s.toLowerCase()) ? c : null);
-
-// export default class SearchHelper{
-//     constructor(data, search){
-//         this.searching = this.format(search);
-//         this.data = data;
-//         return this.result();
-//     }
-
-//     format(string){
-//         return string
-//             .split(' ')
-//             .filter(x=>x!=='');
-//     }
-
-//     similarityObj({content, title, description}){
-//         return {
-//             contentMatch : this.checkSimilarity(this.format(content)),
-//             titleMatch : this.checkSimilarity(this.format(title)),
-//             descriptionMatch : this.checkSimilarity(this.format(description))
-//         }
-//     }
-
-//     checkSimilarity(formatted){
-//         return this.searching.every(s=>formatted.find(c=>c.toLowerCase().includes(s.toLowerCase())));
-//     };
-
-//     result(){
-//         return this.data
-//             .filter(post=>{
-//                 const {contentMatch, titleMatch, descriptionMatch} = this.similarityObj(post);
-//                 return (contentMatch||descriptionMatch || titleMatch) ? post : null;
-//             })
-//             .map(post=>{
-//                 const {contentMatch, titleMatch, descriptionMatch} = this.similarityObj(post);
-//                 const match = {
-//                     contentMatch, 
-//                     titleMatch, 
-//                     descriptionMatch
-//                 };
-//                 return {...post, match};
-//             });
-//     }
-// }
