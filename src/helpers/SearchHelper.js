@@ -42,11 +42,17 @@ function SearchResults({data, search}){
                         const valueOfKey = post[type];
                         const highlight = splitBySpaces(valueOfKey)
                             .map(c=>{
-                                if(searching.find(x=>c.includes(x))){
-                                    console.log(c);
-                                    return <span>{c}</span>
+                                const simalarWord = searching.find(x=>c.includes(x))
+                                if(simalarWord){
+                                    const highlightedLetters = c.split('')
+                                        .map(q=>
+                                            simalarWord.includes(q) ? 
+                                            <span>{q}</span> : 
+                                            q);
+                                    
+                                    return highlightedLetters;
                                 }
-                                return c
+                                return c;
                             });
                         // splitBySpaces
                         console.log(valueOfKey);
@@ -59,7 +65,7 @@ function SearchResults({data, search}){
                 return post;
             });
         console.log(test);
-    },[search, data, checkSimilarity, similarityObj]);
+    },[searching, data, checkSimilarity, similarityObj]);
     
     return (
         <div></div>
