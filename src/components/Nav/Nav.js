@@ -2,7 +2,7 @@ import React,{ useContext, useState} from 'react';
 import styles from './Nav.module.css';
 import UserContext from '../../context/UserContext';
 import AddBtn from './Add/AddBtn';
-import Results from './Results/Results';
+import ResultsContainer from './ResultsContainer/ResultsContainer';
 
 export default (props)=>{
     const {user, logout, userInfo, setUserInfo} = useContext(UserContext);
@@ -24,7 +24,7 @@ export default (props)=>{
                         onChange={(e)=> setSearch(e.target.value)}
                         value={search}
                     ></input>
-                    {search !== '' && <Results search={search}/>}
+                    {search !== '' && <ResultsContainer search={search}/>}
                 </div>
                 {!user ? 
                     <button onClick={props.setModal} className={styles.Auth}>Login</button> :
