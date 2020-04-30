@@ -1,0 +1,9 @@
+.Result{
+    display: flex;
+    padding: 5px;
+    border: solid var(--borderColor) 1px;
+    border-top: none;
+}
+.Result svg{
+    width: 50px;
+}

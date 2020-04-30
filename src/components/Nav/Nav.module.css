@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.13);
+    z-index: var(--z-index-1);
 }
 .Nav{
     padding: 20px 0;

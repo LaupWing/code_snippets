@@ -11,6 +11,7 @@
     --baseWidth: 90vw;
     --backdrop: rgba(0,0,0,.8);
     --errorColor: #FE3636;
+    --z-index-1: 1000;
 }
 
 *{
