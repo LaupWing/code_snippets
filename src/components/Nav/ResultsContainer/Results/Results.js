@@ -59,9 +59,9 @@ function SearchResults({data, search}){
             }
             return post;
         });
-    const testingResult = results.map(x=><Result key={x.id} post={x}/>);
+    const resultsElements = results.map(x=><Result key={x.id} post={x}/>);
     return (
-        <>{testingResult}</>
+        <>{resultsElements}</>
     )
 }
 

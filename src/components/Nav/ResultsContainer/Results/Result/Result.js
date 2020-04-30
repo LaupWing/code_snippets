@@ -3,8 +3,16 @@ import Icon from '../../../../../icons/Icon';
 import styles from './Result.module.css';
 
 function Result({post}){
-    console.log('Coming from result');
-    console.log(post);
+    const founded = [];
+    for(const key in post.match){
+        if(post.match[key]){
+            founded.push({
+                type: key,
+                content:post.match[key]
+            });
+        }
+    };
+    console.log(founded);
 
     return (
         <div className={styles.Result}>
@@ -14,6 +22,17 @@ function Result({post}){
                     <span className={styles.meta}>Meta: </span> 
                     <span className={styles.title}>{post.title}: </span> 
                     <span className={styles.description}>{post.description}</span>
+                </p>
+                <p className={styles.foundIn}>
+                    <i>
+                        Seaches found in:
+                    </i>
+                    {founded.map(x=>{
+                        return <i>
+                            {x.type} :
+                            {x.content}
+                        </i>
+                    })}
                 </p>
             </div>
         </div>

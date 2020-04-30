@@ -24,3 +24,8 @@
 .title{
     font-weight: bold;
 }
+
+.foundIn{
+    margin: 2px 0;
+    font-size: .8em;
+}
