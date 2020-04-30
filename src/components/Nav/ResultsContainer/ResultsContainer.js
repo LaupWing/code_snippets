@@ -12,7 +12,7 @@ function ResultsContainer({search}){
             .map(d=>{
                 const copy = {...d}; 
                 copy.content = d.content.blocks
-                    .map(x=>x.text.trim())
+                    // .map(x=>x.text.trim())
                     .filter(x=>x!=='')
                     .join(' ');
                 return copy
@@ -21,8 +21,7 @@ function ResultsContainer({search}){
     },[data]);
     const parentWidth = container.current ? 
         container.current.parentElement.offsetWidth : 
-        null ;
-    console.log(parentWidth);
+        null;
     const searchResult = <Results data={cleanData} search={search}/>;
     
     return(
