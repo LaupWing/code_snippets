@@ -12,9 +12,10 @@ function ResultsContainer({search}){
             .map(d=>{
                 const copy = {...d}; 
                 copy.content = d.content.blocks
-                    // .map(x=>x.text.trim())
+                    .map(x=>x.text.trim())
                     .filter(x=>x!=='')
                     .join(' ');
+                console.log(copy.content)
                 return copy
             });
         setCleanData(cleanup);
@@ -22,8 +23,8 @@ function ResultsContainer({search}){
     const parentWidth = container.current ? 
         container.current.parentElement.offsetWidth : 
         null;
+
     const searchResult = <Results data={cleanData} search={search}/>;
-    
     return(
         <div ref={container} style={{width: `${parentWidth}px`}} className={styles.container}>{searchResult}</div>
     );
