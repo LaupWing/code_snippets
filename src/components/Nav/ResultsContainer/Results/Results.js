@@ -60,8 +60,6 @@ function SearchResults({data, search}){
             }
             return post;
         });
-    // },[searching, data, checkSimilarity, similarityObj]);
-    console.log(results);
     const testingResult = results.map(x=><Result key={x.id} post={x}/>);
     return (
         <>{testingResult}</>

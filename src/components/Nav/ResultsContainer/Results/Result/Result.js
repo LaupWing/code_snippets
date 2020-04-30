@@ -9,7 +9,13 @@ function Result({post}){
     return (
         <div className={styles.Result}>
             <Icon skill={post.skill}/>
-            result
+            <div className={styles.content}>
+                <p>
+                    <span className={styles.meta}>Meta: </span> 
+                    <span className={styles.title}>{post.title}: </span> 
+                    <span className={styles.description}>{post.description}</span>
+                </p>
+            </div>
         </div>
     );
 }
