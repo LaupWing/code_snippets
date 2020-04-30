@@ -30,17 +30,16 @@ function SearchResults({data, search}){
         .map(post=>{
             const {contentMatch, titleMatch, descriptionMatch} = similarityObj(post);
             const match = {
-                contentMatch, 
-                titleMatch, 
-                descriptionMatch
+                 content:contentMatch, 
+                 title:titleMatch, 
+                 description:descriptionMatch
             };
             return {...post, match};
         })
         .map(post=>{
             for(const key in post.match){
                 if(post.match[key]){
-                    const type = key.split('Match')[0];
-                    const valueOfKey = post[type];
+                    const valueOfKey = post[key];
                     const highlighted = splitBySpaces(valueOfKey)
                         .map(c=>{
                             const simalarWord = searching.find(x=>c.includes(x))
