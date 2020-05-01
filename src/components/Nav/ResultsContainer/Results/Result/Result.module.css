@@ -28,4 +28,19 @@
 .foundIn{
     margin: 2px 0;
     font-size: .8em;
+    display: flex;
+    flex-direction: column;
+}
+
+.foundIn i{
+    display: flex;
+}
+.foundIn i b{
+    margin-right: 5px;
+    color: var(--highlightColor);
+}
+
+.foundIn i p span{
+    font-weight: 800;
+    text-decoration: underline;
 }

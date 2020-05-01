@@ -30,7 +30,7 @@ function Result({post}){
                     </i>
                     {founded.map((x,i)=>{
                         return <i key={i}>
-                            {x.type} :
+                            <b>{x.type}: </b>
                             {x.content}
                         </i>
                     })}
