@@ -19,8 +19,8 @@ function SearchResults({data, search}){
         contentMatch : checkSimilarity(splitBySpaces(content)),
         titleMatch : checkSimilarity(splitBySpaces(title)),
         descriptionMatch : checkSimilarity(splitBySpaces(description))
-    })
-    console.log(data, search);
+    });
+    
     let results = null
     results = data
         .filter(post=>{

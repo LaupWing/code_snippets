@@ -12,7 +12,7 @@ function ResultsContainer({search}){
             .map(d=>{
                 const copy = {...d}; 
                 copy.content = d.content.blocks
-                    .map(x=>x.text.trim())
+                    .map(x=>x.text)
                     .filter(x=>x!=='')
                     .join(' ');
                 console.log(copy.content)
