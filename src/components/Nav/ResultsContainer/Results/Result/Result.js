@@ -23,17 +23,17 @@ function Result({post}){
                     <span className={styles.title}>{post.title}: </span> 
                     <span className={styles.description}>{post.description}</span>
                 </p>
-                <p className={styles.foundIn}>
+                <div className={styles.foundIn}>
                     <i>
                         Seaches found in:
                     </i>
-                    {founded.map(x=>{
-                        return <i>
+                    {founded.map((x,i)=>{
+                        return <i key={i}>
                             {x.type} :
                             {x.content}
                         </i>
                     })}
-                </p>
+                </div>
             </div>
         </div>
     );
