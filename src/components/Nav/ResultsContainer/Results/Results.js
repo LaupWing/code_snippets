@@ -40,6 +40,7 @@ function SearchResults({data, search}){
             for(const key in post.match){
                 if(post.match[key]){
                     const valueOfKey = post[key];
+                    console.log(valueOfKey);
                     const highlighted = splitBySpaces(valueOfKey)
                         .map(c=>{
                             const simalarWord = searching.find(x=>c.includes(x))
@@ -53,7 +54,15 @@ function SearchResults({data, search}){
                                 return highlightedLetters;
                             }
                             return c;
+                        })
+                        .map(s=>{
+                            if(typeof s === 'string'){
+                                return s+' ';
+                            }else{
+                                return [...s, ' '];
+                            }
                         });
+                    console.log(highlighted);
                     post.match[key] =  <p key={post.id}>{highlighted}</p>;
                 }
             }
