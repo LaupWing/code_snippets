@@ -43,13 +43,20 @@ function SearchResults({data, search}){
                     console.log(valueOfKey);
                     const highlighted = splitBySpaces(valueOfKey)
                         .map(c=>{
-                            const simalarWord = searching.find(x=>c.includes(x))
+                            const simalarWord = searching.find(x=>c.toLowerCase().includes(x.toLowerCase()))
                             if(simalarWord){
+                                console.log(c)
+                                console.log(simalarWord)
                                 const highlightedLetters = c.split('')
-                                    .map((q,i)=>
-                                        simalarWord.includes(q) ? 
-                                        <span key={i}>{q}</span> : 
-                                        q);
+                                    .map((q,i)=>{
+                                        console.log(q)
+                                        if(q===simalarWord[0]){
+                                            console.log(simalarWord[0])
+                                            console.log(c.substring(i, simalarWord.length))
+                                            console.log(i, simalarWord.length)
+                                        }
+                                        return q
+                                    });
                                 
                                 return highlightedLetters;
                             }
