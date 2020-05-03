@@ -40,20 +40,24 @@ function SearchResults({data, search}){
             for(const key in post.match){
                 if(post.match[key]){
                     const valueOfKey = post[key];
-                    console.log(valueOfKey);
+                    let start = null;
+                    let end = null;
                     const highlighted = splitBySpaces(valueOfKey)
                         .map(c=>{
-                            const simalarWord = searching.find(x=>c.toLowerCase().includes(x.toLowerCase()))
+                            const simalarWord = searching.find(x=>c.toLowerCase().includes(x.toLowerCase()));
                             if(simalarWord){
-                                console.log(c)
-                                console.log(simalarWord)
                                 const highlightedLetters = c.split('')
                                     .map((q,i)=>{
-                                        console.log(q)
-                                        if(q===simalarWord[0]){
-                                            console.log(simalarWord[0])
-                                            console.log(c.substring(i, simalarWord.length))
-                                            console.log(i, simalarWord.length)
+                                        if(q.toLowerCase()===simalarWord[0].toLowerCase()){
+                                            const isItThisWord = c.substring(i, (simalarWord.length+i)).toLowerCase();
+                                            const currentSearching = simalarWord.toLowerCase();
+                                            if(isItThisWord === currentSearching){
+                                                start = i;
+                                                end = simalarWord.length+i;
+                                            }
+                                        }
+                                        if(i >= start && i <= end){
+                                            return <span key={i}>{q}</span>
                                         }
                                         return q
                                     });
@@ -69,7 +73,6 @@ function SearchResults({data, search}){
                                 return [...s, ' '];
                             }
                         });
-                    console.log(highlighted);
                     post.match[key] =  <p key={post.id}>{highlighted}</p>;
                 }
             }
