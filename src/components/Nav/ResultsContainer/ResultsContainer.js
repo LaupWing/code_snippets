@@ -4,7 +4,7 @@ import Results from './Results/Results';
 import styles from './ResultsContainer.module.css';
 
 function ResultsContainer({search}){
-    const {data, searchingResults} = useContext(DataContext);
+    const {data} = useContext(DataContext);
     const [cleanData, setCleanData] = useState([]);
     const container = useRef();
     

@@ -80,6 +80,7 @@ function SearchResults({data, search}){
             return post;
         });
     const resultsElements = results.map(x=><Result key={x.id} post={x}/>);
+    
     return (
         <>{resultsElements}</>
     )

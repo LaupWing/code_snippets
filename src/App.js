@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './App.module.css';
 import {Route, Switch} from 'react-router-dom';
 import Skills from './pages/Skills/Skills'
@@ -10,6 +10,7 @@ import FirebaseAuth from './helpers/FirebaseAuth';
 import FirebaseData from './helpers/FirebaseData';
 import UserContext from './context/UserContext';
 import DataContext from './context/DataContext';
+import SearchContext from './context/SearchContext';
 
 function App() {
     const {
@@ -22,6 +23,7 @@ function App() {
         userInfo,
         setUserInfo,
         addPost} = FirebaseData();
+    const [searchingResults, setSearchingResults] = useState(null)
         
     const routes = (
         <Switch>
@@ -70,12 +72,16 @@ function App() {
                 <DataContext.Provider value={{
                     data,
                     addPost,
-                    searchingResults: null
                 }}
                 >
-                    {data && <Layout>
-                        {routes}
-                    </Layout> }   
+                    <SearchContext value={{
+                        searchingResults,
+                        setSearchingResults
+                    }}>
+                        {data && <Layout>
+                            {routes}
+                        </Layout> }   
+                    </SearchContext>
                 </DataContext.Provider>
             </UserContext.Provider>
         </div>

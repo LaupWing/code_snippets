@@ -2,8 +2,7 @@ import {createContext} from 'react';
 
 const DataContext = createContext({
     data: [],
-    addPost: ()=>{},
-    searchingResults: null
+    addPost: ()=>{}
 });
 
 export default DataContext;
