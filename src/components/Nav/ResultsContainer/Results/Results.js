@@ -56,7 +56,7 @@ function SearchResults({data, search}){
                                                 end = simalarWord.length+i;
                                             }
                                         }
-                                        if(i >= start && i <= end){
+                                        if(i >= start && i < end){
                                             return <span key={i}>{q}</span>
                                         }
                                         return q
