@@ -1,5 +1,6 @@
 ## Todo
-- [ ] Connect result component to the results component
+- [ ] Combine multiple contexts
+- [x] Connect result component to the results component
 - [x] Need to transform the `SearchHelper` function to an cmp. 
 
 ## Bugs
