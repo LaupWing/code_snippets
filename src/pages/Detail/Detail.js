@@ -10,7 +10,6 @@ function Detail(props){
     const id  = props.match.params.id;
     const post = data.find(p=>p.id===id);
     const date = getDate(post);
-    console.log(post);
 
     return (
         <>

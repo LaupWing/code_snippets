@@ -13,11 +13,16 @@ export default (props)=>{
         setUserInfo(null);
     }
 
+    const submitSearch = (event)=>{
+        event.preventDefault();
+        console.log('Submitterd')
+    }
+
     return (
         <header className={styles.Header}>
             <nav className={styles.Nav}>
                 <h1>Code Snippets</h1>
-                <div className={styles.Search}>
+                <form onSubmit={submitSearch} className={styles.Search}>
                     <input 
                         type="text" 
                         placeholder="What do you want to find?..."
@@ -25,7 +30,7 @@ export default (props)=>{
                         value={search}
                     ></input>
                     {search !== '' && <ResultsContainer search={search}/>}
-                </div>
+                </form>
                 {!user ? 
                     <button onClick={props.setModal} className={styles.Auth}>Login</button> :
                     <button onClick={loggingOut} className={styles.Auth}>Logout</button>

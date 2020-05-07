@@ -12,8 +12,6 @@ function Result({post}){
             });
         }
     };
-    // console.log(post);
-    console.log(founded);
 
     return (
         <div className={styles.Result}>

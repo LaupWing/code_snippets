@@ -20,8 +20,9 @@ function SearchResults({data, search}){
         titleMatch : checkSimilarity(splitBySpaces(title)),
         descriptionMatch : checkSimilarity(splitBySpaces(description))
     });
-    console.log(data)
-    let results = null
+
+    let results = null;
+    
     results = data
         .filter(post=>{
             const {contentMatch, titleMatch, descriptionMatch} = similarityObj(post);

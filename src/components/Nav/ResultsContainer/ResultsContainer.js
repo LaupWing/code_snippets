@@ -7,6 +7,7 @@ function ResultsContainer({search}){
     const {data} = useContext(DataContext);
     const [cleanData, setCleanData] = useState([]);
     const container = useRef();
+
     useEffect(()=>{
         const cleanup = data
             .map(d=>{
@@ -15,8 +16,7 @@ function ResultsContainer({search}){
                     .map(x=>x.text)
                     .filter(x=>x!=='')
                     .join(' ');
-                console.log(copy.content)
-                return copy
+                return copy;
             });
         setCleanData(cleanup);
     },[data]);
