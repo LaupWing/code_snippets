@@ -69,7 +69,8 @@ function App() {
             >
                 <DataContext.Provider value={{
                     data,
-                    addPost
+                    addPost,
+                    searchingResults: null
                 }}
                 >
                     {data && <Layout>

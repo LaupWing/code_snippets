@@ -4,10 +4,10 @@ import Results from './Results/Results';
 import styles from './ResultsContainer.module.css';
 
 function ResultsContainer({search}){
-    const {data} = useContext(DataContext);
+    const {data, searchingResults} = useContext(DataContext);
     const [cleanData, setCleanData] = useState([]);
     const container = useRef();
-
+    
     useEffect(()=>{
         const cleanup = data
             .map(d=>{
