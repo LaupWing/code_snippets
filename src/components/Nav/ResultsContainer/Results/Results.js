@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Result from './Result/Result';
+import SearchContext from '../../../../context/SearchContext';
 // import styles from './Results.module.css'; 
 
 function SearchResults({data, search}){
+    const {setSearchingResults} = useContext(SearchContext);
     const splitBySpaces = string => string
         .split(' ')
         .filter(x=>x!=='');
@@ -79,8 +81,9 @@ function SearchResults({data, search}){
             }
             return post;
         });
-    const resultsElements = results.map(x=><Result key={x.id} post={x}/>);
     
+    setSearchingResults(results);
+    const resultsElements = results.map(x=><Result key={x.id} post={x}/>);
     return (
         <>{resultsElements}</>
     )
