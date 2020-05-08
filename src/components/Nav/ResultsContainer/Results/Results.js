@@ -1,11 +1,9 @@
-import React, {useContext, useEffect, useRef} from 'react';
+import React from 'react';
 import Result from './Result/Result';
-import SearchContext from '../../../../context/SearchContext';
 // import styles from './Results.module.css'; 
 
 function SearchResults(props){
     const {data, search} = props;
-    const {setSearchingResults} = useContext(SearchContext);
     const splitBySpaces = string => string
         .split(' ')
         .filter(x=>x!=='');
@@ -82,33 +80,11 @@ function SearchResults(props){
             }
             return post;
         });
-    useTraceUpdate(props)
-    // eslint-disable-next-lin
-    useEffect(()=>{
-        setSearchingResults(results);
-    },[setSearchingResults, results])
     const resultsElements = results.map(x=><Result key={x.id} post={x}/>);
     return (
         <>{resultsElements}</>
     )
 }
 
-
-function useTraceUpdate(props) {
-    const prev = useRef(props);
-    useEffect(() => {
-      const changedProps = Object.entries(props).reduce((ps, [k, v]) => {
-        if (prev.current[k] !== v) {
-          ps[k] = [prev.current[k], v];
-        }
-        return ps;
-      }, {});
-      if (Object.keys(changedProps).length > 0) {
-          const {data} = changedProps; 
-        console.log(data[1][0]);
-      }
-      prev.current = props;
-    });
-  }
 
 export default SearchResults;
