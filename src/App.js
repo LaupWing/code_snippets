@@ -24,8 +24,8 @@ function App() {
         userInfo,
         setUserInfo,
         addPost} = FirebaseData();
-    const [searchingResults, setSearchingResults] = useState(null)
-        
+    const [searchingResults, setSearchingResults] = useState(null);
+    
     const routes = (
         <Switch>
             <Route 
