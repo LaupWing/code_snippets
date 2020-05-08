@@ -81,7 +81,12 @@ function SearchResults({data, search}){
             }
             return post;
         });
-    
+
+    // eslint-disable-next-lin
+    // useEffect(()=>{
+    //     console.log(results)
+    //     console.log(searchingResults)
+    // },[])
     setSearchingResults(results);
     const resultsElements = results.map(x=><Result key={x.id} post={x}/>);
     return (
