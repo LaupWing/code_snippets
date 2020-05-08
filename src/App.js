@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './App.module.css';
 import {Route, Switch} from 'react-router-dom';
 import Skills from './pages/Skills/Skills'
-import Search from './pages/Search/Search'
 import Videos from './pages/Videos/Videos'
 import Posts from './pages/Posts/Posts'
 import Detail from './pages/Detail/Detail'
@@ -52,7 +51,6 @@ function App() {
                 />} 
             />
             <Route path="/Videos" component={Videos}/>
-            <Route path="/search" component={Search}/>
             <Route path="/skills" component={Skills}/>
             <Route path="/detail/:id" component={Detail}/>
         </Switch>

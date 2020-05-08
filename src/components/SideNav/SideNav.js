@@ -30,10 +30,6 @@ export default ()=>{
             text: 'Skills',
             link: '/skills'
         },
-        {
-            text: 'Search',
-            link: '/search'
-        },
     ];
     
     const NavItems = !user ? 
