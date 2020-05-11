@@ -1,14 +1,22 @@
 import React,{ useContext, useState} from 'react';
 import styles from './Nav.module.css';
 import UserContext from '../../context/UserContext';
+import DataContext from '../../context/DataContext';
 import AddBtn from './Add/AddBtn';
 import ResultsContainer from './ResultsContainer/ResultsContainer';
-
+import ArrayHelpers from '../../helpers/Arrayhelpers'
 
 export default (props)=>{
     const {user, logout, userInfo, setUserInfo} = useContext(UserContext);
+    const {data} = useContext(DataContext);
     const [search, setSearch] = useState('');
-
+    
+    const options = ArrayHelpers
+        .removeDuplicates(data.map(x=>x.skill))
+        .map(s=>(
+            <option value={s}>{s}</option>
+        ));
+        
     const loggingOut = ()=>{
         logout();
         setUserInfo(null);
@@ -18,13 +26,17 @@ export default (props)=>{
         <header className={styles.Header}>
             <nav className={styles.Nav}>
                 <h1>Code Snippets</h1>
-                <form>
+                <form className={styles.Search}>
                     <input 
                         type="text" 
                         placeholder="What do you want to find?..."
                         onChange={(e)=> setSearch(e.target.value)}
                         value={search}
                     ></input>
+                    <select>
+                        <option value="all">All</option>
+                        {options}
+                    </select>
                     {search !== '' && <ResultsContainer search={search}/>}
                 </form>
                 {!user ? 
