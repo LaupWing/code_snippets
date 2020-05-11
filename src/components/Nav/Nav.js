@@ -10,13 +10,14 @@ export default (props)=>{
     const {user, logout, userInfo, setUserInfo} = useContext(UserContext);
     const {data} = useContext(DataContext);
     const [search, setSearch] = useState('');
+    const [filterBy, setFilterBy] = useState('all');
     
     const options = ArrayHelpers
         .removeDuplicates(data.map(x=>x.skill))
         .map(s=>(
             <option value={s}>{s}</option>
         ));
-        
+
     const loggingOut = ()=>{
         logout();
         setUserInfo(null);
@@ -33,11 +34,11 @@ export default (props)=>{
                         onChange={(e)=> setSearch(e.target.value)}
                         value={search}
                     ></input>
-                    <select>
+                    <select onChange={(e)=>setFilterBy(e.target.value)}>
                         <option value="all">All</option>
                         {options}
                     </select>
-                    {search !== '' && <ResultsContainer search={search}/>}
+                    {search !== '' && <ResultsContainer filterBy={filterBy} search={search}/>}
                 </form>
                 {!user ? 
                     <button onClick={props.setModal} className={styles.Auth}>Login</button> :

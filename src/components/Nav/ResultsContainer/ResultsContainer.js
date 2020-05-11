@@ -3,11 +3,11 @@ import DataContext from '../../../context/DataContext';
 import Results from './Results/Results';
 import styles from './ResultsContainer.module.css';
 
-function ResultsContainer({search}){
+function ResultsContainer({search, filterBy}){
     const {data} = useContext(DataContext);
     const [cleanData, setCleanData] = useState([]);
     const container = useRef();
-    
+
     useEffect(()=>{
         const cleanup = data
             .map(d=>{
@@ -17,9 +17,16 @@ function ResultsContainer({search}){
                     .filter(x=>x!=='')
                     .join(' ');
                 return copy;
+            })
+            .filter(x=>{
+                if(filterBy === 'all'){
+                    return x
+                }else{
+                    return x.skill === filterBy
+                }
             });
         setCleanData(cleanup);
-    },[data]);
+    },[data, filterBy]);
     const parentWidth = container.current ? 
         container.current.parentElement.offsetWidth : 
         null;
