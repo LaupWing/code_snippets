@@ -14,16 +14,11 @@ export default (props)=>{
         setUserInfo(null);
     }
 
-    const submitSearch = (event)=>{
-        event.preventDefault();
-        console.log('Submitterd')
-    }
-
     return (
         <header className={styles.Header}>
             <nav className={styles.Nav}>
                 <h1>Code Snippets</h1>
-                <form onSubmit={submitSearch} className={styles.Search}>
+                <form>
                     <input 
                         type="text" 
                         placeholder="What do you want to find?..."
