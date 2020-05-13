@@ -1,6 +1,7 @@
 import React from 'react';
 import Icon from '../../../../../icons/Icon';
 import styles from './Result.module.css';
+import {Link} from 'react-router-dom';
 
 function Result({post}){
     const founded = [];
@@ -12,9 +13,8 @@ function Result({post}){
             });
         }
     };
-
     return (
-        <div className={styles.Result}>
+        <Link className={styles.Result} to={`/detail/${post.id}`}>
             <Icon skill={post.skill}/>
             <div className={styles.content}>
                 <p>
@@ -34,7 +34,7 @@ function Result({post}){
                     })}
                 </div>
             </div>
-        </div>
+        </Link>
     );
 }
 
