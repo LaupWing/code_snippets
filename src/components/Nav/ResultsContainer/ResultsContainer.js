@@ -3,7 +3,7 @@ import DataContext from '../../../context/DataContext';
 import Results from './Results/Results';
 import styles from './ResultsContainer.module.css';
 
-function ResultsContainer({search, filterBy}){
+function ResultsContainer({search, setSearch, filterBy}){
     const {data} = useContext(DataContext);
     const [cleanData, setCleanData] = useState([]);
     const container = useRef();
@@ -31,7 +31,11 @@ function ResultsContainer({search, filterBy}){
         container.current.parentElement.offsetWidth : 
         null;
 
-    const searchResult = <Results data={cleanData} search={search}/>;
+    const searchResult = <Results 
+        setSearch={setSearch} 
+        data={cleanData} 
+        search={search}
+    />;
     return(
         <div ref={container} style={{width: `${parentWidth}px`}} className={styles.container}>{searchResult}</div>
     );

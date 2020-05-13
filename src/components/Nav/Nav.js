@@ -38,7 +38,11 @@ export default (props)=>{
                         <option value="all">All</option>
                         {options}
                     </select>
-                    {search !== '' && <ResultsContainer filterBy={filterBy} search={search}/>}
+                    {search !== '' && <ResultsContainer 
+                        filterBy={filterBy} 
+                        search={search}
+                        setSearch={setSearch}
+                    />}
                 </form>
                 {!user ? 
                     <button onClick={props.setModal} className={styles.Auth}>Login</button> :

@@ -4,10 +4,14 @@ import highlight from './Parts/Highlight';
 // import styles from './Results.module.css'; 
 
 function SearchResults(props){
-    const {data, search} = props;
+    const {data, search, setSearch} = props;
     const results = highlight(data, search);
     
-    const resultsElements = results.map(x=><Result key={x.id} post={x}/>);
+    const resultsElements = results.map(x=><Result 
+        key={x.id} 
+        post={x}
+        setSearch={setSearch}
+    />);
     return (
         <>{resultsElements}</>
     )

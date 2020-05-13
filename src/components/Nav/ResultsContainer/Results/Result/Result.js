@@ -3,7 +3,7 @@ import Icon from '../../../../../icons/Icon';
 import styles from './Result.module.css';
 import {Link} from 'react-router-dom';
 
-function Result({post}){
+function Result({post, setSearch}){
     const founded = [];
     for(const key in post.match){
         if(post.match[key]){
@@ -13,8 +13,11 @@ function Result({post}){
             });
         }
     };
+    const reset = ()=>{
+       setSearch(''); 
+    }
     return (
-        <Link className={styles.Result} to={`/detail/${post.id}`}>
+        <Link onClick={reset} className={styles.Result} to={`/detail/${post.id}`}>
             <Icon skill={post.skill}/>
             <div className={styles.content}>
                 <p>
