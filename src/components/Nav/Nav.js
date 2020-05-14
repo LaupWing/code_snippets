@@ -11,6 +11,7 @@ export default (props)=>{
     const {data} = useContext(DataContext);
     const [search, setSearch] = useState('');
     const [filterSkill, setFilterSkill] = useState('all');
+    // const [filterSection, setFilterSkill] = useState('all');
     
     const options = ArrayHelpers
         .removeDuplicates(data.map(x=>x.skill))
@@ -22,6 +23,13 @@ export default (props)=>{
         logout();
         setUserInfo(null);
     }
+    
+    const sections = ArrayHelpers
+        .removeDuplicates(data
+            .filter(s=>s.skill===filterSkill)
+            .map(s=>s.section)
+        )
+        .map(s=><option value={s}>{s}</option>);
 
     return (
         <header className={styles.Header}>
@@ -37,6 +45,11 @@ export default (props)=>{
                     <select onChange={(e)=>setFilterSkill(e.target.value)}>
                         <option value="all">All</option>
                         {options}
+                    </select>
+                    <select disabled={filterSkill==='all'}>
+                        {filterSkill==='all' && <option>Section</option>}
+                        {filterSkill!=='all' && <option value="all">All</option>}
+                        {filterSkill!=='all' && sections}
                     </select>
                     {search !== '' && <ResultsContainer 
                         filterSkill={filterSkill} 
