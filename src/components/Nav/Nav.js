@@ -11,7 +11,7 @@ export default (props)=>{
     const {data} = useContext(DataContext);
     const [search, setSearch] = useState('');
     const [filterSkill, setFilterSkill] = useState('all');
-    // const [filterSection, setFilterSkill] = useState('all');
+    const [filterSection, setFilterSection] = useState('all');
     
     const options = ArrayHelpers
         .removeDuplicates(data.map(x=>x.skill))
@@ -42,17 +42,23 @@ export default (props)=>{
                         onChange={(e)=> setSearch(e.target.value)}
                         value={search}
                     ></input>
-                    <select onChange={(e)=>setFilterSkill(e.target.value)}>
+                    <select 
+                        onChange={(e)=>setFilterSkill(e.target.value)}
+                    >
                         <option value="all">All</option>
                         {options}
                     </select>
-                    <select disabled={filterSkill==='all'}>
+                    <select 
+                        onChange={(e)=>setFilterSection(e.target.value)} 
+                        disabled={filterSkill==='all'}
+                    >
                         {filterSkill==='all' && <option>Section</option>}
                         {filterSkill!=='all' && <option value="all">All</option>}
                         {filterSkill!=='all' && sections}
                     </select>
                     {search !== '' && <ResultsContainer 
                         filterSkill={filterSkill} 
+                        filterSection={filterSection}
                         search={search}
                         setSearch={setSearch}
                     />}

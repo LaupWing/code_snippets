@@ -3,7 +3,7 @@ import DataContext from '../../../context/DataContext';
 import Results from './Results/Results';
 import styles from './ResultsContainer.module.css';
 
-function ResultsContainer({search, setSearch, filterSkill}){
+function ResultsContainer({search, setSearch, filterSkill, filterSection}){
     const {data} = useContext(DataContext);
     const [cleanData, setCleanData] = useState([]);
     const container = useRef();
@@ -24,9 +24,16 @@ function ResultsContainer({search, setSearch, filterSkill}){
                 }else{
                     return x.skill === filterSkill
                 }
+            })
+            .filter(x=>{
+                if(filterSection === 'all'){
+                    return x
+                }else{
+                    return x.section === filterSection
+                }
             });
         setCleanData(cleanup);
-    },[data, filterSkill]);
+    },[data, filterSkill, filterSection]);
     const parentWidth = container.current ? 
         container.current.parentElement.offsetWidth : 
         null;
