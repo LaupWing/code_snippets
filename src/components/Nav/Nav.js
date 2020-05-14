@@ -10,7 +10,7 @@ export default (props)=>{
     const {user, logout, userInfo, setUserInfo} = useContext(UserContext);
     const {data} = useContext(DataContext);
     const [search, setSearch] = useState('');
-    const [filterBy, setFilterBy] = useState('all');
+    const [filterSkill, setFilterSkill] = useState('all');
     
     const options = ArrayHelpers
         .removeDuplicates(data.map(x=>x.skill))
@@ -34,12 +34,12 @@ export default (props)=>{
                         onChange={(e)=> setSearch(e.target.value)}
                         value={search}
                     ></input>
-                    <select onChange={(e)=>setFilterBy(e.target.value)}>
+                    <select onChange={(e)=>setFilterSkill(e.target.value)}>
                         <option value="all">All</option>
                         {options}
                     </select>
                     {search !== '' && <ResultsContainer 
-                        filterBy={filterBy} 
+                        filterSkill={filterSkill} 
                         search={search}
                         setSearch={setSearch}
                     />}

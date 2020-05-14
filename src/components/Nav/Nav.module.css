@@ -50,3 +50,6 @@ input::placeholder{
     background: var(--highlightColor);
     color: var(--secundairColor);
 }
+select{
+    padding: 5px;
+}

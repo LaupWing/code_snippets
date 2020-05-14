@@ -29,6 +29,7 @@ a{
     color: var(--contrastColor);
 }
 
+select,
 input,
 button{
     outline: none;
