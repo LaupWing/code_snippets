@@ -46,7 +46,7 @@ function AddModal(){
         content = text
     }
     const optionsSkills = availableIcons.map(icon=>(
-        <option value={icon}>{icon}</option>
+        <option key={icon} value={icon}>{icon}</option>
     ))
 
     const optionsSections = sections && sections.map(section=>(
@@ -69,18 +69,18 @@ function AddModal(){
                     onChange={(e)=>{
                         setSkill(e.target.value);
                     }} 
-                    value={skill}
+                    value={skill ? skill : ''}
                 >
-                    <option value="" disabled selected>Select Skill</option>
+                    <option value="" disabled defaultValue>Select Skill</option>
                     {optionsSkills}
                 </select>
                 <select 
-                    value={selectedSection} 
+                    value={selectedSection ? selectedSection : ''} 
                     onChange={(e)=>{
                         setSelectedSection(e.target.value);
                     }}
                 >
-                    <option value="" disabled selected>Select Section</option>
+                    <option value="" disabled defaultValue>Select Section</option>
                     {optionsSections}
                 </select>
                  or

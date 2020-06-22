@@ -16,7 +16,7 @@ export default (props)=>{
     const options = ArrayHelpers
         .removeDuplicates(data.map(x=>x.skill))
         .map(s=>(
-            <option value={s}>{s}</option>
+            <option key={s} value={s}>{s}</option>
         ));
 
     const loggingOut = ()=>{
