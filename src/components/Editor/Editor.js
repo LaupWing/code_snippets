@@ -90,6 +90,7 @@ class MyEditor extends React.Component {
                 onChange={this.onChange}
                 onTab={this.onTab}
                 placeholder="Your Content"
+                // eslint-disable-next-line
                 ref="editor"
                 spellCheck={true}
             />
